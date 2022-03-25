@@ -3,13 +3,12 @@ extends Node
 const SlotClass = preload("res://Slot.gd")
 const ItemClass = preload("res://Item.gd")
 
-const NUM_INVENTORY_SLOTS = 20
+const NUM_INVENTORY_SLOTS = 2
 
 # Dictionary to store items
 # Format is index: [ITEM_NAME, QUANTITY]
 var inventory = {
-	0: ["Health_Potion", 2],
-	#0: ["Health_Potion", 1]
+
 }
 
 func add_item(item_name, item_quantity):
