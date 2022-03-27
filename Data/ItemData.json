@@ -2,12 +2,18 @@
   "Health_Potion": {
     "ItemCategory": "Resource",
     "StackSize": 3,
-    "Description": "Consume this to replenish 1 heart!"
+    "Description": "Consume this to replenish 1 heart!!!!"
   },
   "Health Potion": {
     "ItemCategory": "Resource",
     "StackSize": 3,
     "Description": "Consume this to replenish 1 heart!"
+  },
+  "Proposition": {
+    "ItemCargory": "Proposition",
+    "StackSize": 1,
+    "Description": "This is an example proposition! Click for the textbox!",
+    "Proposition_Description": "Placeholder proposition description"
   },
   "Speed_Potion": {
     "ItemCategory": "Consumable",

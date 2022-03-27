@@ -5,9 +5,10 @@
 [ext_resource path="res://InventoryUI.gd" type="Script" id=3]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Information_Collider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Proposition_Collider.tscn" type="PackedScene" id=8]
 
 [node name="Level_1" type="Node2D"]
+position = Vector2( -1, 0 )
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 256, 592 )
@@ -28,5 +29,5 @@ position = Vector2( 328, 200 )
 position = Vector2( 520, 608 )
 z_index = -1
 
-[node name="Information_Collider" parent="." instance=ExtResource( 6 )]
-position = Vector2( 432, 576 )
+[node name="Proposition_Collider" parent="." instance=ExtResource( 8 )]
+position = Vector2( 76, 574 )

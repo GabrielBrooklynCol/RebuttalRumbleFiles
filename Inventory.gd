@@ -23,8 +23,16 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						click_different_item(event, slot)
 					else: # If different type of item, swap items
 						click_same_slot(slot)
-			elif slot.item: # When not holding an item, pick it up
-				pick_item(slot)
+			else:
+				#Swap to contains proposition
+				if slot.item.item_name == "Proposition":
+					#Proposition Text
+					var Proposition_Text = JsonData.item_data[slot.item.item_name]["Proposition_Description"]
+					#get_parent().get_parent().get_node("Proposition_Collider").is_Collider = false
+					get_parent().get_parent().get_node("Proposition_Collider").get_node("Info_Textbox").add_text(Proposition_Text)
+				elif slot.item: # When not holding an item, pick it up
+					pick_item(slot)
+				
 func _input(event):
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()

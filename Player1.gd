@@ -75,13 +75,9 @@ func _input(event):
 	if event.is_action_pressed("ui_interact"):
 		if $PickupZone.items_in_range.size() > 0:
 			var pickup_item = $PickupZone.items_in_range.values()[0]
-			pickup_item.pick_up_item(self)
+			#pickup_item.pick_up_item(self)
 			$PickupZone.items_in_range.erase(pickup_item)
 
 
 #func _on_Timer_timeout():
 	#get_tree().change_scene("res://Title_Screen.tscn")
-
-
-func _on_PickupZone_body_entered(body):
-	pass # Replace with function body.
