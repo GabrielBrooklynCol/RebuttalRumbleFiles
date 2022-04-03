@@ -15,6 +15,12 @@
     "Description": "This is an example proposition! Click for the textbox!",
     "Proposition_Description": "Placeholder proposition description"
   },
+  "Proposition 2": {
+    "ItemCategory": "Proposition",
+    "StackSize": 1,
+    "Description": "This is a second example prop!",
+    "Proposition_Description": "Second prop placeholder :)"
+  },
   "Speed_Potion": {
     "ItemCategory": "Consumable",
     "StackSize": 3,

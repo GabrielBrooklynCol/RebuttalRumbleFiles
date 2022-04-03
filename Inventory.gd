@@ -1,6 +1,8 @@
 extends Node2D
 
 const SlotClass = preload("res://Slot.gd")
+const TextboxScene = preload("res://Info_Textbox.tscn")
+
 onready var inventory_slots = $GridContainer
 var holding_item = null
 
@@ -25,14 +27,28 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						click_same_slot(slot)
 			else:
 				#Swap to contains proposition
-				if slot.item.item_name == "Proposition":
+				if slot.item && "Proposition" in slot.item.item_name:
 					#Proposition Text
 					var Proposition_Text = JsonData.item_data[slot.item.item_name]["Proposition_Description"]
-					#get_parent().get_parent().get_node("Proposition_Collider").is_Collider = false
-					get_parent().get_parent().get_node("Proposition_Collider").get_node("Info_Textbox").add_text(Proposition_Text)
+					#What if we just added a textbox child?
+					var textboxInstance = TextboxScene.instance()
+					get_parent().get_parent().add_child(textboxInstance);
+					textboxInstance.add_text(Proposition_Text)
+					#get_parent().get_parent().get_node("Proposition_Collider").get_node("Info_Textbox").add_text(Proposition_Text)
 				elif slot.item: # When not holding an item, pick it up
 					pick_item(slot)
 				
+				"""if slot.item && slot.item.item_name == "Proposition 2":
+					#Proposition Text
+					var Proposition_Text = JsonData.item_data[slot.item.item_name]["Proposition_Description"]
+					#What if we just added a textbox child?
+					var textboxInstance = TextboxScene.instance()
+					get_parent().get_parent().add_child(textboxInstance);
+					textboxInstance.add_text(Proposition_Text)
+					#get_parent().get_parent().get_node("Proposition_Collider").get_node("Info_Textbox").add_text(Proposition_Text)
+				elif slot.item:
+					pick_item(slot)
+					"""
 func _input(event):
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()

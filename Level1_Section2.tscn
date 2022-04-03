@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://InventoryUI.gd" type="Script" id=1]
+[ext_resource path="res://Player1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Proposition_Collider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=5]
+
+[node name="Level1_Section2" type="Node2D"]
+pause_mode = 2
+
+[node name="TileMap" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 1179648, 4, 0, 1179649, 4, 0, 1179650, 4, 0, 1179651, 4, 0, 1179652, 4, 0, 1179653, 4, 0, 1179654, 4, 0, 1179655, 4, 0, 1179656, 4, 0, 1179657, 4, 0, 1179658, 4, 0, 1179659, 4, 0, 1179660, 4, 0, 1179661, 4, 0, 1179662, 4, 0, 1179663, 4, 0, 1179664, 4, 0, 1179665, 4, 0, 1179666, 4, 0, 1179667, 4, 0, 1179668, 4, 0, 1179669, 4, 0, 1179670, 4, 0, 1179671, 4, 0, 1179672, 4, 0, 1179673, 4, 0, 1179674, 4, 0, 1179675, 4, 0, 1179676, 4, 0, 1179677, 4, 0, 1179678, 4, 0, 1179679, 4, 0 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 522 )
+
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Inventory" parent="InventoryUI" instance=ExtResource( 5 )]
+position = Vector2( 318, 182 )
+
+[node name="Proposition_Collider" parent="." instance=ExtResource( 3 )]

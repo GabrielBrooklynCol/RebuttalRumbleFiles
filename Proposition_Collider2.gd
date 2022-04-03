@@ -20,7 +20,7 @@ func _physics_process(delta):
 		$ZBoxSprite.show()
 		if Input.is_action_pressed("ui_interact"):
 			#Textbox pops up containing proposition information
-			$Collider_Textbox.add_text("Example Proposition Info")
+			$Info_Textbox.add_text("Example Proposition Info")
 			#Adds proposition to inventory
 			PlayerInventory.add_item("Proposition", 1)
 			fromCollider = true
@@ -28,14 +28,16 @@ func _physics_process(delta):
 			#Wait till the textbox is completed
 	else:
 		$ZBoxSprite.hide()
+	if $Info_Textbox.completed == true && textboxClicked == true && fromCollider == true:
+		#get_tree().change_scene("res://DialogueCombat.tscn")
+		pass
 		
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT && event.pressed:
-				if $Collider_Textbox.completed == true:
-					$Collider_Textbox.hide_textbox()
-					get_tree().change_scene("res://Level1_Section2.tscn")
+				if $Info_Textbox.shown == true && $Info_Textbox.completed == true:
+					$Info_Textbox.hide_textbox()
 					textboxClicked = true
 
 func _on_ZBox_body_entered(body):
