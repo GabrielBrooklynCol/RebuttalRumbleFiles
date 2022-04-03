@@ -4,7 +4,6 @@ extends StaticBody2D
 var alreadyInteracted = false
 var inBody = false
 var textboxClicked = false
-var fromCollider = false
 
 # Start by hiding the info (Z button) box
 func _ready():
@@ -23,12 +22,6 @@ func _physics_process(delta):
 			$Collider_Textbox.add_text("Example Proposition Info")
 			#Adds proposition to inventory
 			PlayerInventory.add_item("Proposition", 1)
-			fromCollider = true
-			#Change to the combat scene
-			#Wait till the textbox is completed
-	else:
-		$ZBoxSprite.hide()
-		
 
 func _input(event):
 	if event is InputEventMouseButton:
