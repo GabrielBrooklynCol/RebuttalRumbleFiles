@@ -33,6 +33,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 					var textboxInstance = TextboxScene.instance()
 					get_parent().get_parent().add_child(textboxInstance);
 					textboxInstance.add_text(Proposition_Text)
+					get_tree().paused = false
 					 #get_parent().get_parent().get_node("Proposition_Collider").get_node("Info_Textbox").add_text(Proposition_Text)
 				elif slot.item: # When not holding an item, pick it up
 					pick_item(slot)
