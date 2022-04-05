@@ -8,9 +8,8 @@ const NUM_INVENTORY_SLOTS = 20
 # Dictionary to store items
 # Format is index: [ITEM_NAME, QUANTITY]
 var inventory = {
-	0: ["Health_Potion", 2],
+	#0: ["Health_Potion", 2],
 	#1: ["Proposition", 1],
-	#2: ["Proposition 2", 1],
 	#0: ["Health_Potion", 1]
 }
 

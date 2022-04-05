@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 #Adjust the read rate of the textbox here
-const READ_RATE = 0.002
+const READ_RATE = -0.2
 
 var shown = false
 var hidden = true
@@ -17,6 +17,15 @@ func _ready():
 	hidden = true
 	shown = false
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && event.pressed:
+			if shown == true && completed == true:
+				hide_textbox()
+				
+				
+				
+				
 #Resets the textbox and hides the container
 func hide_textbox():
 	symbol.text = ""
@@ -35,18 +44,11 @@ func show_textbox():
 
 # Add text and read it based on the read rate
 func add_text(next_text):
-	completed = false
+	completed = true
 	text.text = next_text
 	show_textbox()
 	$Tween.interpolate_property(text, "percent_visible", 0.0, 1.0, len(next_text) * READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT && event.pressed:
-				if shown == true && completed == true:
-					hide_textbox()
-
 
 # Unpause the game after the text is fully read
 func _on_Tween_tween_completed(object, key):
