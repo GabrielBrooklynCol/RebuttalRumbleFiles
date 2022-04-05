@@ -8,10 +8,11 @@
 [ext_resource path="res://Proposition_Collider.tscn" type="PackedScene" id=8]
 
 [node name="Level_1" type="Node2D"]
+pause_mode = 2
 position = Vector2( -1, 0 )
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 256, 592 )
+position = Vector2( 902, 586 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 1245184, 4, 0, 1245185, 4, 0, 1245186, 4, 0, 1245187, 4, 0, 1245188, 4, 0, 1245189, 4, 0, 1245190, 4, 0, 1245191, 4, 0, 1245192, 4, 0, 1245193, 4, 0, 1245194, 4, 0, 1245195, 4, 0, 1245196, 4, 0, 1245197, 4, 0, 1245198, 4, 0, 1245199, 4, 0, 1245200, 4, 0, 1245201, 4, 0, 1245202, 4, 0, 1245203, 4, 0, 1245204, 4, 0, 1245205, 4, 0, 1245206, 4, 0, 1245207, 4, 0, 1245208, 4, 0, 1245209, 4, 0, 1245210, 4, 0, 1245211, 4, 0, 1245212, 4, 0, 1245213, 4, 0, 1245214, 4, 0, 1245215, 4, 0 )
@@ -30,4 +31,4 @@ position = Vector2( 520, 608 )
 z_index = -1
 
 [node name="Proposition_Collider" parent="." instance=ExtResource( 8 )]
-position = Vector2( 76, 574 )
+position = Vector2( 982, 570 )
