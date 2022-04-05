@@ -12,14 +12,14 @@
   "Proposition": {
     "ItemCargory": "Proposition",
     "StackSize": 1,
-    "Description": "Click this to view the first proposition!",
-    "Proposition_Description": "In the scorching heat of the Badhlands, there’s no other gang you’ll see ruling over its sands than the fierce Pincer! We ride on our hogs and cause a living heck to those who are in our way and those dumb enough to get in our way. Whenever a gang has a problem with us, we show them how we’re actually top-of-the-line plastic surgeons! They come to us with their heads, then they leave without one! Anything you can think of, killing, stealing, harsh language, our gang has done it as one. And that was thanks to our leader, Zerksees. None of us could have faced the lands on our own, but he managed to cobble together lonely bikers, orphaned children, and children he made into orphans and formed into something we’ve called our family."
+    "Description": "This is an example proposition! Click for the textbox!",
+    "Proposition_Description": "Placeholder proposition description"
   },
-  "Proposition2": {
-    "ItemCargory": "Proposition",
+  "Proposition 2": {
+    "ItemCategory": "Proposition",
     "StackSize": 1,
-    "Description": "Click this to view the second proposition!",
-    "Proposition_Description": "During a friendly pillage session in a distant village, Zerksees found himself a lady. He called her Cat because she looked as cut as one she would always run to the corner whenever he was close to her like one. Ever since they met, he acted like a completely different person. He would often give her gifts such as bear plushies but they were often thrown around or torn apart. Since I, Ryder ofBooks, was the only one capable of writing in the gang, he made me transcribe his love letter. As always, she didn’t respond to what she said. In fact, she’d be more inclined to talk to anyone else besides him. This would upset Zirksees, and if he were to catch anyone talking to her or even make eye contact he’d get into a fight with them. The worse possible thing to come out of his obsession was his response to the loss of one of our mates. After our beloved member FelloffDaBike anDied passed away from a cold, we thought Zerksees would think of a way to honor his death. What we got after his passing, instead, was our Saloon’s name changed from The Stab and Kill to The Smooch and Kiss. He also had the place decorated with paper hearts and streamers and had the bartender dressed up like those babies with wings, diaper and everything! He was still obsessed with trying to impress his girl even after one of our own is not with us. After seeing what he’s done with the saloon, it seems FelloffDaBike was the lucky one. At that point, we knew that Zerksees was also gone. We haven’t had a good raid in forever, and we depend on those! I and the rest of us are off tomorrow. We’ll just leave the both of them on their own. From one Pincer to another."
+    "Description": "This is a second example prop!",
+    "Proposition_Description": "Second prop placeholder :)"
   },
   "Speed_Potion": {
     "ItemCategory": "Consumable",

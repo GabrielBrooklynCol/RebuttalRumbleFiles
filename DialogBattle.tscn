@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://characters.png" type="Texture" id=1]
 [ext_resource path="res://DialogUI.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://ReallyNowResponseLabel.gd" type="Script" id=9]
 [ext_resource path="res://CouldNotSayResponseLabel.gd" type="Script" id=10]
 [ext_resource path="res://StillConfusedResponseLabel.gd" type="Script" id=11]
-[ext_resource path="res://DesertPunkUi.tres" type="Theme" id=12]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0, 0, 1 )
@@ -137,7 +136,6 @@ margin_right = 395.0
 margin_bottom = 233.0
 rect_min_size = Vector2( 395, 0 )
 custom_fonts/normal_font = SubResource( 12 )
-bbcode_text = "Am I a generic enemy downloaded from a tutorial?"
 text = "Am I a generic enemy downloaded from a tutorial?"
 
 [node name="Sprite" type="Sprite" parent="Enemy"]
@@ -208,6 +206,7 @@ rect_min_size = Vector2( 232, 0 )
 text = "Propositions"
 
 [node name="DialogOptionsContainer" type="MarginContainer" parent="."]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -215,7 +214,6 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
-theme = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
