@@ -1,0 +1,2025 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=1]
+[ext_resource path="res://DialogBattle/DialogUI.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://DialogBattle/ResponseLabel.gd" type="Script" id=5]
+[ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://DialogBattle/MaybeResponseLabel.gd" type="Script" id=7]
+[ext_resource path="res://DialogBattle/elipsResponseLabel.gd" type="Script" id=8]
+[ext_resource path="res://DialogBattle/NotWant.gd" type="Script" id=9]
+[ext_resource path="res://DialogBattle/OldSelfLabel.gd" type="Script" id=10]
+[ext_resource path="res://DialogBattle/TriedGetWayLabel.gd" type="Script" id=11]
+[ext_resource path="res://DialogBattle/FallInLoveLabel.gd" type="Script" id=12]
+[ext_resource path="res://DialogBattle/MakeYouHappyLabel.gd" type="Script" id=13]
+[ext_resource path="res://DialogBattle/ShowerGiftsLabel.gd" type="Script" id=14]
+[ext_resource path="res://KnewOfLoveLabel.gd" type="Script" id=15]
+[ext_resource path="res://DialogBattle/LoveAsMuchLabel.gd" type="Script" id=16]
+[ext_resource path="res://DialogBattle/OrphanTrickedLabel.gd" type="Script" id=17]
+[ext_resource path="res://DialogBattle/FellOffBikeLabel.gd" type="Script" id=18]
+[ext_resource path="res://DialogBattle/CatGangLabel.gd" type="Script" id=19]
+[ext_resource path="res://DialogBattle/PincerLabel.gd" type="Script" id=20]
+[ext_resource path="res://2ndResponseLabel.gd" type="Script" id=21]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 7
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=21]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=22]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 9
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 25
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 36
+font_data = ExtResource( 6 )
+
+[node name="DialogueCombat" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2, 30 )
+
+[node name="Enemy" type="KinematicBody2D" parent="."]
+
+[node name="EnemyDialogue" type="MarginContainer" parent="Enemy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 301.0
+margin_top = 191.5
+margin_right = 723.0
+margin_bottom = 448.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyDialogue/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Enemy/EnemyDialogue/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyText" type="RichTextLabel" parent="Enemy/EnemyDialogue/MarginContainer/HBoxContainer"]
+margin_right = 395.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 395, 0 )
+custom_fonts/normal_font = SubResource( 12 )
+text = "A tyke like you has no idea what you’re up against. The strong fell under my boot and the stronger fall under my control. That just leaves the strongest, me! Even my own gang saw me as a monster!"
+
+[node name="Sprite" type="Sprite" parent="Enemy"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy/Sprite"]
+position = Vector2( 895, 380 )
+scale = Vector2( 6.03125, 6.79688 )
+frames = SubResource( 10 )
+
+[node name="ArgueOrProposition" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -2.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ArgueOrProposition"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ArgueOrProposition/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ArgueOrProposition/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArgueOrProposition/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.19
+
+[node name="argueBTN" type="Button" parent="ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_right = 174.051
+margin_bottom = 128.0
+rect_min_size = Vector2( 174.051, 0 )
+action_mode = 0
+text = "ARGUE"
+
+[node name="Control" type="Control" parent="ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 178.0
+margin_right = 766.967
+margin_bottom = 128.0
+rect_min_size = Vector2( 588.967, 0 )
+
+[node name="propositionBTN" type="Button" parent="ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 770.0
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 232, 0 )
+text = "Propositions"
+
+[node name="DialogOptionsContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogOptionsContainer"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogOptionsContainer/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogOptionsContainer/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogOptionsContainer/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MostFearedBTN" type="Button" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Doesn’t it get lonely being the most feared? "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="T2TBTN" type="Button" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_text = "You can't be the best when there were gangs and villagers that stood toe to toe against you
+"
+text = "You can't be the best when there were gangs and villagers that stood toe to toe against you
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogOptionsContainer/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonsterBTN" type="Button" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = " You’'ve made yourself an easy target for your own gang to think that"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="FamilyBTN" type="Button" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "Your gang see you as the head of head of it's family. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondArgument" type="MarginContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="SecondArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="SecondArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="SecondArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotWantBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 224.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Did you ever have the feeling that she didn’t want to be with you?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OldSelfBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 224.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "They have done that in the hopes that you’d be back to your old self.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 224.0
+margin_right = 775.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 551, 0 )
+
+[node name="KnewOfLoveBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "Your gang knew about your love and left with just the two of you here."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FallInLoveBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+custom_fonts/mono_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "They did that in the hopes she would fall in love with them."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SecondArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoveAsMuchBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_text = "You love your gang just as much you do Cat."
+text = "You love your gang just as much you do Cat."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadeYouHappyBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "But they didn’t. They left you with her, knowing she made you happy."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 229.0
+margin_right = 789.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="TriedGetWayBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = " It makes me wonder how the gang tried getting in the way of your love"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowerGiftsBTN" type="Button" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "They did that so you can shower them with gifts instead."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirdArgument" type="MarginContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ThirdArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ThirdArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ThirdArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThirdArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PincerBTN" type="Button" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Your gang leaving didn’t stop them from believing you’re their leader."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="OrphanTrickedBTN" type="Button" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+text = "Out of revenge, one of the orphans tricked your team to turn against you. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ThirdArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FellOffBikeBTN" type="Button" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "This was all done to make you feel guilty for how you responded to FellOffDaBike's death."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="CatGangBTN" type="Button" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "They’ve left you with the hope that you and Cat will start your own gang.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResponseMostFeared" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMostFeared"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseMostFeared/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMostFeared/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMostFeared/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 5 )
+
+[node name="ResponseMostFearedBTN" type="Button" parent="ResponseMostFeared/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 920.0
+margin_top = 83.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMostFeared/Panel/MarginContainer/RichTextLabel/ResponseMostFearedBTN"]
+anchor_bottom = 0.311
+margin_left = 13.0
+margin_top = 6.0
+margin_right = 85.0
+margin_bottom = 35.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseMostFeared"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseMostFeared"]
+
+[node name="ResponseT2T" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseT2T"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseT2T/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseT2T/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseT2T/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 21 )
+
+[node name="ResponseT2TBTN" type="Button" parent="ResponseT2T/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseT2T/Panel/MarginContainer/RichTextLabel/ResponseT2TBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseT2T"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseT2T"]
+
+[node name="ResponseMonster" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMonster"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseMonster/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMonster/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMonster/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 7 )
+
+[node name="ResponseMonsterBTN" type="Button" parent="ResponseMonster/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMonster/Panel/MarginContainer/RichTextLabel/ResponseMonsterBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseMonster"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseMonster"]
+
+[node name="ResponseFamily" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFamily"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseFamily/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFamily/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFamily/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 8 )
+
+[node name="ResponseFamilyBTN" type="Button" parent="ResponseFamily/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFamily/Panel/MarginContainer/RichTextLabel/ResponseFamilyBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseFamily"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseFamily"]
+
+[node name="ResponseNotWant" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseNotWant"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseNotWant/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseNotWant/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseNotWant/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 9 )
+
+[node name="ResponseNotWantBTN" type="Button" parent="ResponseNotWant/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseNotWant/Panel/MarginContainer/RichTextLabel/ResponseNotWantBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseNotWant"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseNotWant"]
+
+[node name="ResponseOldSelf" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseOldSelf"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseOldSelf/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseOldSelf/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseOldSelf/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 10 )
+
+[node name="ResponseOldSelfBTN" type="Button" parent="ResponseOldSelf/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseOldSelf/Panel/MarginContainer/RichTextLabel/ResponseOldSelfBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseOldSelf"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseOldSelf"]
+
+[node name="ResponseKnewOfLove" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseKnewOfLove"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseKnewOfLove/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseKnewOfLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseKnewOfLove/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 15 )
+
+[node name="ResponseKOLBTN" type="Button" parent="ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel/ResponseKOLBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseKnewOfLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseKnewOfLove"]
+
+[node name="ResponseFallInLove" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFallInLove"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseFallInLove/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFallInLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFallInLove/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 12 )
+
+[node name="ResponseFILBTN" type="Button" parent="ResponseFallInLove/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFallInLove/Panel/MarginContainer/RichTextLabel/ResponseFILBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseFallInLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseFallInLove"]
+
+[node name="ResponseLoveAsMuch" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseLoveAsMuch"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseLoveAsMuch/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseLoveAsMuch/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseLoveAsMuch/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 16 )
+
+[node name="ResponseLAMBTN" type="Button" parent="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel/ResponseLAMBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseLoveAsMuch"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseLoveAsMuch"]
+
+[node name="ResponseMadeYouHappy" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMadeYouHappy"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseMadeYouHappy/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseMadeYouHappy/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMadeYouHappy/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 13 )
+
+[node name="ResponseMYHBTN" type="Button" parent="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 907.0
+margin_top = 83.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel/ResponseMYHBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseMadeYouHappy"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseMadeYouHappy"]
+
+[node name="ResponseTriedGetWay" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseTriedGetWay"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseTriedGetWay/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseTriedGetWay/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseTriedGetWay/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 11 )
+
+[node name="ResponseTGWBTN" type="Button" parent="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel/ResponseTGWBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseTriedGetWay"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseTriedGetWay"]
+
+[node name="ResponseShowerGifts" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseShowerGifts"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseShowerGifts/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseShowerGifts/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseShowerGifts/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 14 )
+
+[node name="ResponseSGBTN" type="Button" parent="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel/ResponseSGBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseShowerGifts"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseShowerGifts"]
+
+[node name="ResponsePincer" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponsePincer"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponsePincer/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponsePincer/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponsePincer/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 20 )
+
+[node name="ResponsePincerBTN" type="Button" parent="ResponsePincer/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 873.0
+margin_top = 76.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponsePincer/Panel/MarginContainer/RichTextLabel/ResponsePincerBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponsePincer"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponsePincer"]
+
+[node name="ResponseOrphanTricked" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseOrphanTricked"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseOrphanTricked/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseOrphanTricked/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseOrphanTricked/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 17 )
+
+[node name="ResponseOTBTN" type="Button" parent="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel/ResponseOTBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseOrphanTricked"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseOrphanTricked"]
+
+[node name="ResponseFellOffBike" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFellOffBike"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseFellOffBike/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseFellOffBike/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFellOffBike/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 18 )
+
+[node name="ResponseFOBBTN" type="Button" parent="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel/ResponseFOBBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseFellOffBike"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseFellOffBike"]
+
+[node name="ResponseCatGang" type="MarginContainer" parent="."]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseCatGang"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResponseCatGang/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ResponseCatGang/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseCatGang/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 19 )
+
+[node name="ResponseCGBTN" type="Button" parent="ResponseCatGang/Panel/MarginContainer/RichTextLabel"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseCatGang/Panel/MarginContainer/RichTextLabel/ResponseCGBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ResponseCatGang"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="ResponseCatGang"]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PropositionBox" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.112
+anchor_right = 0.703
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -61.68
+margin_right = 109.128
+margin_bottom = 129.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="PropositionBox/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PropositionBox/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PropositionText" type="RichTextLabel" parent="PropositionBox/MarginContainer/HBoxContainer"]
+margin_right = 610.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 610, 31 )
+custom_fonts/normal_font = SubResource( 12 )
+
+[node name="Prop1Btn" type="Button" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 303.0
+margin_top = 450.0
+margin_right = 471.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prop1Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 167.0
+margin_bottom = 37.072
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "Proposition 1"
+text = "Proposition 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBTN" type="Button" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 610.0
+margin_top = 403.0
+margin_right = 716.0
+margin_bottom = 439.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CloseBTN"]
+margin_top = -1.0
+margin_right = 153.0
+margin_bottom = 40.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 24 )
+text = "Return"
+
+[node name="Prop2Btn" type="Button" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 560.0
+margin_top = 449.0
+margin_right = 724.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Prop2Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 36.694
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "Proposition 2"
+text = "Proposition 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="." method="_on_argueBTN_pressed"]
+[connection signal="pressed" from="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN" to="." method="_on_MostFearedBTN_pressed"]
+[connection signal="pressed" from="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN" to="." method="_on_T2TBTN_pressed"]
+[connection signal="pressed" from="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN" to="." method="_on_MonsterBTN_pressed"]
+[connection signal="pressed" from="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN" to="." method="_on_FamilyBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN" to="." method="_on_NotWantBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN" to="." method="_on_OldSelfBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN" to="." method="_on_KnewOfLoveBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN" to="." method="_on_FallInLoveBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN" to="." method="_on_LoveAsMuchBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN" to="." method="_on_MadeYouHappyBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN" to="." method="_on_TriedGetWayBTN_pressed"]
+[connection signal="pressed" from="SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN" to="." method="_on_ShowerGiftsBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN" to="." method="_on_PincerBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN" to="." method="_on_OrphanTrickedBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN" to="." method="_on_FellOffBikeBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN" to="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel" method="_on_FellOffBikeBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN" to="." method="_on_CatGangBTN_pressed"]
+[connection signal="pressed" from="ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN" to="ResponseCatGang/Panel/MarginContainer/RichTextLabel" method="_on_CatGangBTN_pressed"]
+[connection signal="pressed" from="ResponseMostFeared/Panel/MarginContainer/RichTextLabel/ResponseMostFearedBTN" to="." method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="pressed" from="ResponseMostFeared/Panel/MarginContainer/RichTextLabel/ResponseMostFearedBTN" to="ResponseMostFeared/Panel/MarginContainer/RichTextLabel" method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="timeout" from="ResponseMostFeared/Timer" to="ResponseMostFeared/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseMostFeared/Tween" to="ResponseMostFeared" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseT2T/Panel/MarginContainer/RichTextLabel/ResponseT2TBTN" to="." method="_on_ResponseT2TBTN_pressed"]
+[connection signal="pressed" from="ResponseT2T/Panel/MarginContainer/RichTextLabel/ResponseT2TBTN" to="ResponseT2T/Panel/MarginContainer/RichTextLabel" method="_on_ResponseT2TBTN_pressed"]
+[connection signal="timeout" from="ResponseT2T/Timer" to="ResponseT2T/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseT2T/Tween" to="ResponseT2T" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseMonster/Panel/MarginContainer/RichTextLabel/ResponseMonsterBTN" to="." method="_on_ResponseMonsterBTN_pressed"]
+[connection signal="pressed" from="ResponseMonster/Panel/MarginContainer/RichTextLabel/ResponseMonsterBTN" to="ResponseMonster/Panel/MarginContainer/RichTextLabel" method="_on_ResponseMonsterBTN_pressed"]
+[connection signal="timeout" from="ResponseMonster/Timer" to="ResponseMonster/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseMonster/Tween" to="ResponseMonster" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseFamily/Panel/MarginContainer/RichTextLabel/ResponseFamilyBTN" to="." method="_on_ResponseFamilyBTN_pressed"]
+[connection signal="timeout" from="ResponseFamily/Timer" to="ResponseFamily/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseFamily/Tween" to="ResponseFamily" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseNotWant/Panel/MarginContainer/RichTextLabel/ResponseNotWantBTN" to="." method="_on_ResponseNotWantBTN_pressed"]
+[connection signal="pressed" from="ResponseNotWant/Panel/MarginContainer/RichTextLabel/ResponseNotWantBTN" to="ResponseNotWant/Panel/MarginContainer/RichTextLabel" method="_on_ResponseNotWantBTN_pressed"]
+[connection signal="timeout" from="ResponseNotWant/Timer" to="ResponseNotWant/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseNotWant/Tween" to="ResponseNotWant" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseOldSelf/Panel/MarginContainer/RichTextLabel/ResponseOldSelfBTN" to="." method="_on_ResponseOldSelfBTN_pressed"]
+[connection signal="pressed" from="ResponseOldSelf/Panel/MarginContainer/RichTextLabel/ResponseOldSelfBTN" to="ResponseOldSelf/Panel/MarginContainer/RichTextLabel" method="_on_ResponseOldSelfBTN_pressed"]
+[connection signal="timeout" from="ResponseOldSelf/Timer" to="ResponseOldSelf/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseOldSelf/Tween" to="ResponseOldSelf" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel/ResponseKOLBTN" to="." method="_on_ResponseKOLBTN_pressed"]
+[connection signal="timeout" from="ResponseKnewOfLove/Timer" to="ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseKnewOfLove/Tween" to="ResponseKnewOfLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseFallInLove/Panel/MarginContainer/RichTextLabel/ResponseFILBTN" to="." method="_on_ResponseFILBTN_pressed"]
+[connection signal="pressed" from="ResponseFallInLove/Panel/MarginContainer/RichTextLabel/ResponseFILBTN" to="ResponseFallInLove/Panel/MarginContainer/RichTextLabel" method="_on_ResponseFILBTN_pressed"]
+[connection signal="timeout" from="ResponseFallInLove/Timer" to="ResponseFallInLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseFallInLove/Tween" to="ResponseFallInLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel/ResponseLAMBTN" to="." method="_on_ResponseLAMBTN_pressed"]
+[connection signal="pressed" from="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel/ResponseLAMBTN" to="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel" method="_on_ResponseLAMBTN_pressed"]
+[connection signal="timeout" from="ResponseLoveAsMuch/Timer" to="ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseLoveAsMuch/Tween" to="ResponseLoveAsMuch" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel/ResponseMYHBTN" to="." method="_on_ResponseMYHBTN_pressed"]
+[connection signal="pressed" from="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel/ResponseMYHBTN" to="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel" method="_on_ResponseMYHBTN_pressed"]
+[connection signal="timeout" from="ResponseMadeYouHappy/Timer" to="ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseMadeYouHappy/Tween" to="ResponseMadeYouHappy" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel/ResponseTGWBTN" to="." method="_on_ResponseTGWBTN_pressed"]
+[connection signal="pressed" from="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel/ResponseTGWBTN" to="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel" method="_on_ResponseTGWBTN_pressed"]
+[connection signal="timeout" from="ResponseTriedGetWay/Timer" to="ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseTriedGetWay/Tween" to="ResponseTriedGetWay" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel/ResponseSGBTN" to="." method="_on_ResponseSGBTN_pressed"]
+[connection signal="pressed" from="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel/ResponseSGBTN" to="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel" method="_on_ResponseSGBTN_pressed"]
+[connection signal="timeout" from="ResponseShowerGifts/Timer" to="ResponseShowerGifts/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseShowerGifts/Tween" to="ResponseShowerGifts" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponsePincer/Panel/MarginContainer/RichTextLabel/ResponsePincerBTN" to="." method="_on_ResponsePincerBTN_pressed"]
+[connection signal="timeout" from="ResponsePincer/Timer" to="ResponsePincer/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponsePincer/Tween" to="ResponsePincer" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel/ResponseOTBTN" to="." method="_on_ResponseOTBTN_pressed"]
+[connection signal="pressed" from="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel/ResponseOTBTN" to="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel" method="_on_ResponseOTBTN_pressed"]
+[connection signal="timeout" from="ResponseOrphanTricked/Timer" to="ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseOrphanTricked/Tween" to="ResponseOrphanTricked" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel/ResponseFOBBTN" to="." method="_on_ResponseFOBBTN_pressed"]
+[connection signal="pressed" from="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel/ResponseFOBBTN" to="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel" method="_on_ResponseFOBBTN_pressed"]
+[connection signal="timeout" from="ResponseFellOffBike/Timer" to="ResponseFellOffBike/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseFellOffBike/Tween" to="ResponseFellOffBike" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="ResponseCatGang/Panel/MarginContainer/RichTextLabel/ResponseCGBTN" to="." method="_on_ResponseCGBTN_pressed"]
+[connection signal="pressed" from="ResponseCatGang/Panel/MarginContainer/RichTextLabel/ResponseCGBTN" to="ResponseCatGang/Panel/MarginContainer/RichTextLabel" method="_on_ResponseCGBTN_pressed"]
+[connection signal="timeout" from="ResponseCatGang/Timer" to="ResponseCatGang/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="ResponseCatGang/Tween" to="ResponseCatGang" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Prop1Btn" to="." method="_on_Prop1Btn_pressed"]
+[connection signal="pressed" from="CloseBTN" to="." method="_on_CloseBTN_pressed"]
+[connection signal="pressed" from="Prop2Btn" to="." method="_on_Prop2Btn_pressed"]
