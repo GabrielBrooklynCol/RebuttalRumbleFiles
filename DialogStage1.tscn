@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://DialogBattle/characters.png" type="Texture" id=1]
 [ext_resource path="res://DialogBattle/DialogUI.gd" type="Script" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://DialogBattle/CatGangLabel.gd" type="Script" id=19]
 [ext_resource path="res://DialogBattle/PincerLabel.gd" type="Script" id=20]
 [ext_resource path="res://2ndResponseLabel.gd" type="Script" id=21]
+[ext_resource path="res://heartsSP.png" type="Texture" id=22]
+[ext_resource path="res://HealthSprite.gd" type="Script" id=23]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0, 0, 1 )
@@ -100,6 +102,10 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=24]
 size = 36
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 30
 font_data = ExtResource( 6 )
 
 [node name="DialogueCombat" type="CanvasLayer"]
@@ -1936,6 +1942,27 @@ mouse_filter = 1
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "Proposition 2"
 text = "Proposition 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHealthUI" type="CanvasLayer" parent="."]
+
+[node name="HealthSprite" type="Sprite" parent="PlayerHealthUI"]
+position = Vector2( 273.5, 24.25 )
+scale = Vector2( 0.972527, 0.933962 )
+texture = ExtResource( 22 )
+hframes = 4
+frame = 3
+script = ExtResource( 23 )
+
+[node name="Label" type="Label" parent="PlayerHealthUI"]
+margin_right = 194.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 25 )
+text = "Player's Health: "
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

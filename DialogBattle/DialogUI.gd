@@ -14,9 +14,17 @@ export(String,FILE,"*.json") var dialogue1
 # var b = "text"
 
 
+#..............sy............
+export  (int) var health = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Global.player = self
+	
+func _exit_tree():
+	Global.player = null
+
+#.........sy...............
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,6 +56,10 @@ func _on_MostFearedBTN_pressed(): #Wrong
 	#get_node("Response/Panel/MarginContainer/RichTextLabel").page = 
 	$ResponseMostFeared.visible = true
 	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
+	
 func _on_ResponseMostFearedBTN_pressed(): #This button will be on the Response textbox, open after the last dialogue.
 
 	$ResponseMostFeared.visible = false #At the end of the textbox this button 
@@ -60,6 +72,11 @@ func _on_ResponseMostFearedBTN_pressed(): #This button will be on the Response t
 func _on_T2TBTN_pressed(): #Wrong Statement
 	$ResponseT2T.visible = true
 	pass # Replace with function body.
+	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
+	
 
 func _on_ResponseT2TBTN_pressed():
 	$ResponseT2T.visible = false
@@ -70,6 +87,10 @@ func _on_MonsterBTN_pressed(): #Wrong Statement
 	$ResponseMonster.visible = true
 	pass # Replace with function body.
 
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
+	
 func _on_ResponseMonsterBTN_pressed():
 	$ResponseMonster.visible = false
 	get_node("ResponseT2T/Panel/MarginContainer/RichTextLabel/ResponseT2TBTN").visible = false 
@@ -100,6 +121,10 @@ func _on_ResponseFamilyBTN_pressed():
 
 func _on_NotWantBTN_pressed():
 	$ResponseNotWant.visible = true
+	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 func _on_ResponseNotWantBTN_pressed():
 	$ResponseNotWant.visible = false
@@ -118,6 +143,10 @@ func _on_ResponseKOLBTN_pressed():
 
 func _on_LoveAsMuchBTN_pressed():
 	$ResponseLoveAsMuch.visible = true
+	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 func _on_ResponseLAMBTN_pressed():
 	$ResponseLoveAsMuch.visible = false
@@ -137,6 +166,10 @@ func _on_ResponseTGWBTN_pressed():
 # Pressing argument for Argument 2 --- Begin
 func _on_FallInLoveBTN_pressed():
 	$ResponseFallInLove.visible = true
+	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 func _on_ResponseFILBTN_pressed():
 	$ResponseFallInLove.visible = false
@@ -144,6 +177,9 @@ func _on_ResponseFILBTN_pressed():
 
 func _on_OldSelfBTN_pressed():
 	$ResponseOldSelf.visible = true
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 	
 func _on_ResponseOldSelfBTN_pressed():
 	$ResponseOldSelf.visible = false
@@ -151,6 +187,9 @@ func _on_ResponseOldSelfBTN_pressed():
 
 func _on_ShowerGiftsBTN_pressed():
 	$ResponseShowerGifts.visible = true
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 func _on_ResponseSGBTN_pressed():
 	$ResponseShowerGifts.visible = false
@@ -181,6 +220,8 @@ func _on_ResponseMYHBTN_pressed():
 func _on_PincerBTN_pressed():
 	get_node("ResponsePincer/Panel/MarginContainer/RichTextLabel").page = -1
 	$ResponsePincer.visible = true
+	
+		
 func _on_ResponsePincerBTN_pressed():
 	$ResponsePincer.visible =  false
 	$ArgueOrProposition.visible = false
@@ -193,6 +234,10 @@ func _on_OrphanTrickedBTN_pressed():
 	$ResponseOrphanTricked.visible = true
 	#get_node("ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel/ResponseOTBTN").visible = false
 
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
+	
 func _on_ResponseOTBTN_pressed():
 	$ResponseOrphanTricked.visible = false
 	get_node("ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel").page = -1
@@ -203,6 +248,9 @@ func _on_FellOffBikeBTN_pressed():
 	
 	get_node("ResponseFellOffBike/Panel/MarginContainer/RichTextLabel").page = -1
 	$ResponseFellOffBike.visible = true
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 func _on_ResponseFOBBTN_pressed():
 
@@ -211,10 +259,15 @@ func _on_ResponseFOBBTN_pressed():
 	#get_node("ResponseFellOffBike/Panel/MarginContainer/RichTextLabel/ResponseFOBBTN").visible = false
 	
 
+
 func _on_CatGangBTN_pressed():
 	
 	get_node("ResponseCatGang/Panel/MarginContainer/RichTextLabel").page = -1
 	$ResponseCatGang.visible = true
+	
+	#..............sy.............
+	playerHealth()
+	#..............sy..............
 
 
 func _on_ResponseCGBTN_pressed():
@@ -228,7 +281,14 @@ func _on_ResponseCGBTN_pressed():
 #Aegument 3 -- end
 
 
-
+#.................sy................
+func playerHealth():
+	health -= 1
+	print("you lose a lift")
+	if health <= 0:
+		print("no more life")
+		
+#..............sy..........
 
 
 func _on_Prop1Btn_pressed():
