@@ -50,6 +50,11 @@ func _physics_process(delta):
 		
 		velocity = move_and_slide(velocity, FLOOR)
 		
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.has_method("collide_with"):
+				collision.collider.collide_with(collision, self)
+		
 		#This is for enemies (not relevant)
 		#if get_slide_count() > 0:
 			#for i in range(get_slide_count()):
