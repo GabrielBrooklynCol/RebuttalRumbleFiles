@@ -10,32 +10,39 @@ var on_ground = false
 var is_attacking = false
 var is_dead = false
 
+export var climbing = false
+
 
 func _physics_process(delta):
 	#Basic movement mechanics/animations being played
 	if is_dead == false:
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -MOVEMENT_SPEED
-			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.flip_h = false
 			#if is_attacking == false:
 				#$AnimatedSprite.play("run")
 		elif Input.is_action_pressed("ui_right"):
 			velocity.x = MOVEMENT_SPEED
-			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.flip_h = true
 			#if is_attacking == false:
 				#$AnimatedSprite.play("run")
 		else:
 			velocity.x = 0
 			#if on_ground == true && is_attacking == false:
 				#$AnimatedSprite.play("idle")
-		
-		if Input.is_action_pressed("ui_up"):
-			if on_ground == true:
-				velocity.y = JUMP_POWER
-				on_ground = false
-				
-		
-		velocity.y += GRAVITY
+
+		if climbing == false:
+			velocity.y += GRAVITY
+			if Input.is_action_pressed("ui_up"):
+				if on_ground == true:
+					velocity.y = JUMP_POWER
+					on_ground = false
+		elif climbing == true:
+			velocity.y = 0
+			if Input.is_action_pressed("ui_up"):
+				velocity.y = -MOVEMENT_SPEED
+			elif Input.is_action_pressed("ui_down"):
+				velocity.y = MOVEMENT_SPEED
 		
 		if is_on_floor():
 			on_ground = true

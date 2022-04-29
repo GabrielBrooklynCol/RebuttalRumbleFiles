@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://PTGplayersprite.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Naomi/Naomi-Stand.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), SubResource( 1 ) ],
+"frames": [ ExtResource( 3 ), SubResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -20,6 +20,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite"]
-position = Vector2( 85, 378 )
-scale = Vector2( 6.5, 7.71875 )
+position = Vector2( 130, 277 )
+scale = Vector2( 5, 7.2 )
 frames = SubResource( 2 )
+flip_h = true
