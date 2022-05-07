@@ -28,7 +28,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT && event.pressed:
 				if $Collider_Textbox.completed == true:
 					$Collider_Textbox.hide_textbox()
-					get_tree().change_scene("res://DialogStage1.tscn")
+					get_tree().change_scene("res://Level_1Section3.tscn")
 					textboxClicked = true
 
 func _on_ZBox_body_entered(body):

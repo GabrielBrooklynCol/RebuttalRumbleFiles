@@ -1,9 +1,60 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Proposition_Collider2.gd" type="Script" id=1]
 [ext_resource path="res://Info_Collider_Assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://Info_Collider_Assets/keyboard_key_z.png" type="Texture" id=3]
 [ext_resource path="res://Info_Textbox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends StaticBody2D
+
+#Proposition Collider
+var alreadyInteracted = false
+var inBody = false
+var textboxClicked = false
+var fromCollider = false
+
+# Start by hiding the info (Z button) box
+func _ready():
+	$ZBoxSprite.hide()
+
+
+# While the player is near the collider (and hasn't interacted with it already),
+# a \"Z\" prompt will hover over the collider
+# Once the player has pressed Z, a textbox will play that'll pause the game
+# Until it's done.
+func _physics_process(delta):
+	if inBody == true:
+		$ZBoxSprite.show()
+		if Input.is_action_pressed(\"ui_interact\"):
+			#Textbox pops up containing proposition information
+			$Info_Textbox.add_text(\"Example Proposition Info\")
+			#Adds proposition to inventory
+			PlayerInventory.add_item(\"Proposition\", 1)
+			fromCollider = true
+			#Change to the combat scene
+			#Wait till the textbox is completed
+	else:
+		$ZBoxSprite.hide()
+	if $Info_Textbox.completed == true && textboxClicked == true && fromCollider == true:
+		#get_tree().change_scene(\"res://DialogueCombat.tscn\")
+		pass
+		
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && event.pressed:
+				if $Info_Textbox.shown == true && $Info_Textbox.completed == true:
+					$Info_Textbox.hide_textbox()
+					textboxClicked = true
+
+func _on_ZBox_body_entered(body):
+	if \"Player\" in body.name:
+		inBody = true
+
+func _on_ZBox_body_exited(body):
+	if \"Player\" in body.name:
+		inBody = false
+"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -13,7 +64,7 @@ radius = 72.0
 
 [node name="Proposition_Collider" type="StaticBody2D"]
 pause_mode = 2
-script = ExtResource( 1 )
+script = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

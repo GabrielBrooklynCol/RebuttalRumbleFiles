@@ -1,6 +1,6 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=1]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 1 Boss/Stage 1 Boss-Stand.png" type="Texture" id=1]
 [ext_resource path="res://DialogBattle/DialogUI.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=4]
@@ -23,7 +23,7 @@
 [ext_resource path="res://2ndResponseLabel.gd" type="Script" id=21]
 [ext_resource path="res://heartsSP.png" type="Texture" id=22]
 [ext_resource path="res://HealthSprite.gd" type="Script" id=23]
-[ext_resource path="res://PARALLAX_BACKGROUND_SCENES/SCENE_1_1024X640.png" type="Texture" id=24]
+[ext_resource path="res://PARALLAX_BACKGROUND_SCENES/BATTLE_SCENE(FINAL).png" type="Texture" id=24]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0, 0, 1 )
@@ -36,13 +36,9 @@ border_color = Color( 1, 1, 1, 1 )
 [sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 4 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 64, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 9 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -110,6 +106,7 @@ size = 30
 font_data = ExtResource( 6 )
 
 [node name="DialogueCombat" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -169,7 +166,7 @@ text = "A tyke like you has no idea what you’re up against. The strong fell un
 [node name="Sprite" type="Sprite" parent="Enemy"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy/Sprite"]
-position = Vector2( 895, 380 )
+position = Vector2( 845, 246 )
 scale = Vector2( 6.03125, 6.79688 )
 frames = SubResource( 10 )
 
@@ -1972,6 +1969,9 @@ __meta__ = {
 position = Vector2( 513, 319 )
 z_index = -2
 texture = ExtResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="." method="_on_argueBTN_pressed"]
 [connection signal="pressed" from="DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN" to="." method="_on_MostFearedBTN_pressed"]
