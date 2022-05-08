@@ -67,7 +67,11 @@ func _physics_process(delta):
 			#for i in range(get_slide_count()):
 				#if "Enemy" in get_slide_collision(i).collider.name:
 					#dead()
-
+		
+		#Void collision
+		if get_position().y > 1600:
+			get_tree().reload_current_scene()
+		
 func dead():
 	is_dead = true
 	velocity = Vector2(0, 0)
