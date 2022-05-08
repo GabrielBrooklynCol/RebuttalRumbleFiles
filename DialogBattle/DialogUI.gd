@@ -15,14 +15,14 @@ export(String,FILE,"*.json") var dialogue1
 
 
 #..............sy............
-export  (int) var health = 3
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	Global.player = self
-	
-func _exit_tree():
-	Global.player = null
+#export  (int) var health = 3
+#
+## Called when the node enters the scene tree for the first time.
+#func _ready():
+#	Global.player = self
+#
+#func _exit_tree():
+#	Global.player = null
 
 #.........sy...............
 
@@ -57,7 +57,7 @@ func _on_MostFearedBTN_pressed(): #Wrong
 	$ResponseMostFeared.visible = true
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 	
 func _on_ResponseMostFearedBTN_pressed(): #This button will be on the Response textbox, open after the last dialogue.
@@ -74,7 +74,7 @@ func _on_T2TBTN_pressed(): #Wrong Statement
 	pass # Replace with function body.
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 	
 
@@ -88,7 +88,7 @@ func _on_MonsterBTN_pressed(): #Wrong Statement
 	pass # Replace with function body.
 
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 	
 func _on_ResponseMonsterBTN_pressed():
@@ -114,6 +114,7 @@ func _on_ResponseFamilyBTN_pressed():
 	$ArgueOrProposition.visible = true
 	
 	
+	
 #Argument 1 -- END
 
 
@@ -123,7 +124,7 @@ func _on_NotWantBTN_pressed():
 	$ResponseNotWant.visible = true
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 func _on_ResponseNotWantBTN_pressed():
@@ -145,7 +146,7 @@ func _on_LoveAsMuchBTN_pressed():
 	$ResponseLoveAsMuch.visible = true
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 func _on_ResponseLAMBTN_pressed():
@@ -168,7 +169,7 @@ func _on_FallInLoveBTN_pressed():
 	$ResponseFallInLove.visible = true
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 func _on_ResponseFILBTN_pressed():
@@ -178,7 +179,7 @@ func _on_ResponseFILBTN_pressed():
 func _on_OldSelfBTN_pressed():
 	$ResponseOldSelf.visible = true
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 	
 func _on_ResponseOldSelfBTN_pressed():
@@ -188,7 +189,7 @@ func _on_ResponseOldSelfBTN_pressed():
 func _on_ShowerGiftsBTN_pressed():
 	$ResponseShowerGifts.visible = true
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 func _on_ResponseSGBTN_pressed():
@@ -235,7 +236,7 @@ func _on_OrphanTrickedBTN_pressed():
 	#get_node("ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel/ResponseOTBTN").visible = false
 
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 	
 func _on_ResponseOTBTN_pressed():
@@ -249,7 +250,7 @@ func _on_FellOffBikeBTN_pressed():
 	get_node("ResponseFellOffBike/Panel/MarginContainer/RichTextLabel").page = -1
 	$ResponseFellOffBike.visible = true
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 func _on_ResponseFOBBTN_pressed():
@@ -266,7 +267,7 @@ func _on_CatGangBTN_pressed():
 	$ResponseCatGang.visible = true
 	
 	#..............sy.............
-	playerHealth()
+	#playerHealth()
 	#..............sy..............
 
 
@@ -282,25 +283,25 @@ func _on_ResponseCGBTN_pressed():
 
 
 #.................sy................
-func playerHealth():
-	health -= 1
-	print("you lose a lift")
-	if health <= 0:
-		print("no more life")
-		
+#func playerHealth():
+#	health -= 1
+#	print("you lose a lift")
+#	if health <= 0:
+#		print("no more life")
+#
 #..............sy..........
 
 
 func _on_Prop1Btn_pressed():
 	$PropositionBox.visible = true
 	$CloseBTN.visible = true
-	$PropositionBox/MarginContainer/HBoxContainer/PropositionText.text = "In the scorching heat of the Badhlands, there’s no other gang you’ll see ruling over its sands than the fierce Pincer! We ride on our hogs and cause a living heck to those who are in our way and those dumb enough to get in our way. Whenever a gang has a problem with us, we show them how we’re actually top-of-the-line plastic surgeons! They come to us with their heads, then they leave without one! Anything you can think of, killing, stealing, harsh language, our gang has done it as one. And that was thanks to our leader, Zerksees. None of us could have faced the lands on our own, but he managed to cobble together lonely bikers, orphaned children, and children he made into orphans and formed into something we’ve called our family."
+	$PropositionBox/MarginContainer/HBoxContainer/PropositionText.text = "A hundred years have passed since the zombie outbreak ravaged civilization. Only one survivor of the outbreak remains: No one. Everyone who wasn’t a zombie is a zombie. Or just dead. “Living” life as a reanimated corpse with an unsatisfied craving for human flesh can bore you. That was when Goulstein saw their nostalgia as an opportunity. He specialized in making movies about zombies surviving the human apocalypse.  The zombies would bravely chase the terrifying and cowering humans and dine on their flesh. Of course, since humans are extinct, the humans in his movies are just zombies with rubber masks of human faces. Critics and the public loved his movies. Watching a constant stream of human outbreak movies was something the people could not get enough of.\n\nThat was, until the people got enough. In recent years, less and less people came to watch his movies. His film crew were complaining about how tedious producing each film has been. His ego was blocking out their voices. The waning attention and rigid direction culminated in all three of his Zombie Bite movies to receive almost non existent attention. People would rather just be bored by themselves."
 	pass # Replace with function body.
 
 func _on_Prop2Btn_pressed():
 	$PropositionBox.visible = true
 	$CloseBTN.visible = true
-	$PropositionBox/MarginContainer/HBoxContainer/PropositionText.text = "During a friendly pillage session in a distant village, Zerksees found himself a lady. He called her Cat because she looked as cut as one she would always run to the corner whenever he was close to her like one. Ever since they met, he acted like a completely different person. He would often give her gifts such as bear plushies but they were often thrown around or torn apart. Since I, Ryder ofBooks, was the only one capable of writing in the gang, he made me transcribe his love letter. As always, she didn’t respond to what she said. In fact, she’d be more inclined to talk to anyone else besides him. This would upset Zirksees, and if he were to catch anyone talking to her or even make eye contact he’d get into a fight with them.\n" +"The worse possible thing to come out of his obsession was his response to the loss of one of our mates. After our beloved member FelloffDaBike anDied passed away from a cold, we thought Zerksees would think of a way to honor his death. What we got after his passing, instead, was our Saloon’s name changed from The Stab and Kill to The Smooch and Kiss. He also had the place decorated with paper hearts and streamers and had the bartender dressed up like those babies with wings, diaper and everything! He was still obsessed with trying to impress his girl even after one of our own is not with us. After seeing what he’s done with the saloon, it seems FelloffDaBike was the lucky one. At that point, we knew that Zerksees was also gone. We haven’t had a good raid in forever, and we depend on those! I and the rest of us are off tomorrow. We’ll just leave the both of them on their own. From one Pincer to another."
+	$PropositionBox/MarginContainer/HBoxContainer/PropositionText.text = "During the Global Ghoul awards, Ghoulstein’s third Zombie Bite movie won all categories. All categories, except best picture. That award was snubbed by Alien James Lapid, the one Martian resident living in our world (The future of the zombie apocalypse brings interesting residents.) He was responsible for making Deadtective, a detective movie with the plot twist that there wasn’t a killer since everyone was technically dead. People didn’t like the movie for its plot twist. Instead, they were impressed that it was a movie that deviated from the horror movies people were subjected to by Goulstein. We as his crew thought this would be  his wake up call."
 	
 	pass # Replace with function body.
 

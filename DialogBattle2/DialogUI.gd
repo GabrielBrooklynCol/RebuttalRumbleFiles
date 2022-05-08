@@ -75,6 +75,8 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 	#$DialogOptionsContainer.visible = false
 	#$ArgueOrProposition.visible = true
 	##PressingOptions = 1
+	
+	# Argument 1 -- BEGIN
 	if dialogPage == 0 && dialogCategory == "Acclaimed":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Of course they have! Since when has a director ever been dishonest? Want more proof? Look at how the public idolizes me."

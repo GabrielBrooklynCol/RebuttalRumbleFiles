@@ -26,7 +26,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT && event.pressed:
 				if $Info_Textbox.completed == true:
 					$Info_Textbox.hide_textbox()
-					get_tree().change_scene("res://DialogStage1.tscn")
+					get_tree().change_scene("res://DialogStage1(Re-Work).tscn")
 					textboxClicked = true
 
 func _on_ZBox_body_entered(body):

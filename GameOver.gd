@@ -3,7 +3,8 @@ extends Node2D
 
 
 func _on_MainMenu_pressed():
-	get_tree().change_scene("res://TitleScreen.tscn")
+	get_tree().paused = false
+	get_tree().change_scene("res://titlescreen.tscn")
 
 
 

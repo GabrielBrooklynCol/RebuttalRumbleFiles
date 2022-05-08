@@ -1,0 +1,2795 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://PlayerHealthUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DialogBattle/ResponseLabel.gd" type="Script" id=4]
+[ext_resource path="res://DialogBattle2/DialogUI.gd" type="Script" id=7]
+[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=22]
+[ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=24]
+[ext_resource path="res://DialogBattle2/2ndMovieLabel.gd" type="Script" id=25]
+[ext_resource path="res://DialogBattle2/AllMoviesLabel.gd" type="Script" id=26]
+[ext_resource path="res://DialogBattle2/1stMovieLabel.gd" type="Script" id=27]
+[ext_resource path="res://DialogBattle2/3rdMovieLabel.gd" type="Script" id=28]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 7
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 23 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=21]
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=22]
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFontData" id=25]
+font_path = "res://Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+font_data = SubResource( 25 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 9
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 25
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 32
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 24
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 36
+font_data = ExtResource( 24 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="DialogueCombat" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="Player" parent="DialogueCombat" instance=ExtResource( 22 )]
+position = Vector2( -2, 30 )
+
+[node name="Enemy" type="KinematicBody2D" parent="DialogueCombat"]
+
+[node name="EnemyDialogue" type="MarginContainer" parent="DialogueCombat/Enemy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 301.0
+margin_top = 191.5
+margin_right = 723.0
+margin_bottom = 448.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyText" type="RichTextLabel" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer/HBoxContainer"]
+margin_right = 395.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 395, 0 )
+custom_fonts/normal_font = SubResource( 12 )
+text = " My films are nothing short of masterpieces! The people hunger for what was long gone and I feed them through beloved cinema! This film is sure to impress once they know a genuine human is on the menu!"
+
+[node name="Sprite" type="Sprite" parent="DialogueCombat/Enemy"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="DialogueCombat/Enemy/Sprite"]
+position = Vector2( 895, 380 )
+scale = Vector2( 6.03125, 6.79688 )
+frames = SubResource( 10 )
+
+[node name="ArgueOrProposition" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -2.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ArgueOrProposition"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ArgueOrProposition/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.19
+
+[node name="argueBTN" type="Button" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_right = 174.051
+margin_bottom = 128.0
+rect_min_size = Vector2( 174.051, 0 )
+action_mode = 0
+text = "ARGUE"
+
+[node name="Control" type="Control" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 178.0
+margin_right = 766.967
+margin_bottom = 128.0
+rect_min_size = Vector2( 588.967, 0 )
+
+[node name="propositionBTN" type="Button" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 770.0
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 232, 0 )
+text = "Propositions"
+
+[node name="DialogOptionsContainer" type="MarginContainer" parent="DialogueCombat"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/DialogOptionsContainer"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/DialogOptionsContainer/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcclaimedBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/AcclaimedBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "All your movies had that level of acclaim?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1stMovie" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/1stMovie"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "The first movie
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="T2TBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_text = "Are people that excited about your more recent movies?"
+text = "Are people that excited about your more recent movies?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2ndMovie" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 985.0
+margin_right = 1188.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/2ndMovie"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_text = "The second movie
+
+"
+text = "The second movie
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonsterBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "Weren’t the films receiving less attention because of its critics?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3rdMovie" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 227.0
+margin_right = 450.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/3rdMovie"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "The third movie
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="FamilyBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "There’s ways beyond movies you want to express your creativity "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllMovies" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 1001.0
+margin_right = 1207.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/AllMovies"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "All those movies"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/SecondArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/SecondArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotWantBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 221.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Your cast members have complained about how bland the films have been.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OldSelfBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 224.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "They have done that in the hopes that you’d be back to your old self.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 224.0
+margin_right = 775.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 551, 0 )
+
+[node name="KnewOfLoveBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "The actors express how they hated working in your movies as of recent."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FallInLoveBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+custom_fonts/mono_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "They did that in the hopes she would fall in love with them."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoveAsMuchBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_text = "Deep down, you feel that you’ve been losing interest in the direction of your films."
+text = "Deep down, you feel that you’ve been losing interest in the direction of your films."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadeYouHappyBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "But they didn’t. They left you with her, knowing she made you happy."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 229.0
+margin_right = 789.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="TriedGetWayBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "Haven’t you complained to your film crew about not following your vision?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowerGiftsBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "They did that so you can shower them with gifts instead."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirdArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ThirdArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ThirdArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PincerBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "You said before that you don’t need to rely on actual humans to improve your movies. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FixedBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/FixedBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Those awards were said to be fixed in your favor"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="OrphanTrickedBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+text = "That “ultimate sign of praise” must have played quite the influence. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThreeCategoriesBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 985.0
+margin_right = 1188.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/ThreeCategoriesBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+text = "There was a different film that won those last three categories. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FellOffBikeBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = " If there hasn’t been a human in years, then how do you know that’s what the audience desires?
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="detectMovieBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/detectMovieBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "A detective movie won the best picture.
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="CatGangBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "Your film wasn’t the one that received that praise."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PressuredBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/PressuredBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+meta_underlined = false
+text = "Winning those awards left you feeling pressured rather than awarded  "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FourthArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/FourthArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/FourthArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/FourthArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScarierBTN" type="Button" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer/ScarierBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "Deadtective was said to be scarier than your movie."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="HappyBTN" type="Button" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer/HappyBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+text = "The audience were happy that it wasn’t another horror movie."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChaseBTN" type="Button" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2/ChaseBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "Viewers thought it didn’t have as many chase scenes as Deadtective. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="CharacterBTN" type="Button" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2/CharacterBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = " The characters in your movie weren’t as compelling to the audience. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FifthArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/FifthArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/FifthArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/FifthArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InterestedBTN" type="Button" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer/InterestedBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 14 )
+text = "The audience are no longer interested in watching horror movies. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="CollabBTN" type="Button" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer/CollabBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 22 )
+text = "You want to collaborate with the director of Deadtective to make something with him instead."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HumanWantBTN" type="Button" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2/HumanWantBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 17 )
+text = "She's not the human you want for this movie."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="CastBTN" type="Button" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2/CastBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+text = "You've shown interest in following the ideas from your cast rather than your own. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResponseAcclaimed" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAcclaimed"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseMostFearedBTN" type="Button" parent="DialogueCombat/ResponseAcclaimed/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 944.0
+margin_top = 48.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseAcclaimed/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 929.0
+margin_bottom = 78.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer"]
+visible = false
+margin_right = 921.0
+margin_bottom = 72.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer"]
+margin_right = 921.0
+margin_bottom = 72.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseAcclaimed"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseAcclaimed"]
+
+[node name="Response1stMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1019.0
+margin_bottom = 585.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response1stMovie"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response1stMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 27 )
+
+[node name="Response1stBTN" type="Button" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel/Response1stBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response1stMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response1stMovie"]
+
+[node name="Response2ndMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response2ndMovie"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response2ndMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 25 )
+
+[node name="Response2ndBTN" type="Button" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel/Response2ndBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response2ndMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response2ndMovie"]
+
+[node name="Response3rdMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response3rdMovie"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response3rdMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 28 )
+
+[node name="Response3rdBTN" type="Button" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel/Response3rdBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response3rdMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response3rdMovie"]
+
+[node name="ResponseAllMovies" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAllMovies"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseAllMovies/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 26 )
+
+[node name="ResponseAllBTN" type="Button" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel/ResponseAllBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseAllMovies"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseAllMovies"]
+
+[node name="ResponseT2T" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseT2T"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseT2TBTN" type="Button" parent="DialogueCombat/ResponseT2T/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseT2T/Panel/ResponseT2TBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseT2T/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseT2T/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseT2T/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseT2T"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseT2T"]
+
+[node name="ResponseMonster" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMonster"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseMonsterBTN" type="Button" parent="DialogueCombat/ResponseMonster/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMonster/Panel/ResponseMonsterBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseMonster/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMonster/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMonster/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseMonster"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseMonster"]
+
+[node name="ResponseFamily" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFamily"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseFamilyBTN" type="Button" parent="DialogueCombat/ResponseFamily/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFamily/Panel/ResponseFamilyBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFamily/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFamily/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFamily/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFamily"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFamily"]
+
+[node name="ResponseNotWant" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseNotWant"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseNotWantBTN" type="Button" parent="DialogueCombat/ResponseNotWant/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseNotWant/Panel/ResponseNotWantBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseNotWant/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseNotWant/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseNotWant/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseNotWant"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseNotWant"]
+
+[node name="ResponseOldSelf" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOldSelf"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseOldSelfBTN" type="Button" parent="DialogueCombat/ResponseOldSelf/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOldSelf/Panel/ResponseOldSelfBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseOldSelf/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOldSelf/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOldSelf/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseOldSelf"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseOldSelf"]
+
+[node name="ResponseKnewOfLove" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseKnewOfLove"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseKOLBTN" type="Button" parent="DialogueCombat/ResponseKnewOfLove/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseKnewOfLove/Panel/ResponseKOLBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseKnewOfLove/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseKnewOfLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseKnewOfLove"]
+
+[node name="ResponseFallInLove" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFallInLove"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseFILBTN" type="Button" parent="DialogueCombat/ResponseFallInLove/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFallInLove/Panel/ResponseFILBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFallInLove/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFallInLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFallInLove/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFallInLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFallInLove"]
+
+[node name="ResponseLoveAsMuch" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseLoveAsMuch"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseLAMBTN" type="Button" parent="DialogueCombat/ResponseLoveAsMuch/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/ResponseLAMBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseLoveAsMuch/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseLoveAsMuch"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseLoveAsMuch"]
+
+[node name="ResponseMadeYouHappy" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMadeYouHappy"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseMYHBTN" type="Button" parent="DialogueCombat/ResponseMadeYouHappy/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/ResponseMYHBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseMadeYouHappy/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseMadeYouHappy"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseMadeYouHappy"]
+
+[node name="ResponseTriedGetWay" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseTriedGetWay"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseTGWBTN" type="Button" parent="DialogueCombat/ResponseTriedGetWay/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseTriedGetWay/Panel/ResponseTGWBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseTriedGetWay/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseTriedGetWay"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseTriedGetWay"]
+
+[node name="ResponseShowerGifts" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseShowerGifts"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseSGBTN" type="Button" parent="DialogueCombat/ResponseShowerGifts/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseShowerGifts/Panel/ResponseSGBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseShowerGifts/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseShowerGifts"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseShowerGifts"]
+
+[node name="ResponsePincer" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponsePincer"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponsePincerBTN" type="Button" parent="DialogueCombat/ResponsePincer/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponsePincer/Panel/ResponsePincerBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponsePincer/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponsePincer/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponsePincer/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponsePincer"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponsePincer"]
+
+[node name="ResponseOrphanTricked" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOrphanTricked"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseOTBTN" type="Button" parent="DialogueCombat/ResponseOrphanTricked/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOrphanTricked/Panel/ResponseOTBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseOrphanTricked/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseOrphanTricked"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseOrphanTricked"]
+
+[node name="ResponseFellOffBike" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFellOffBike"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseFOBBTN" type="Button" parent="DialogueCombat/ResponseFellOffBike/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFellOffBike/Panel/ResponseFOBBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFellOffBike/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFellOffBike"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFellOffBike"]
+
+[node name="ResponseCatGang" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseCatGang"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResponseCGBTN" type="Button" parent="DialogueCombat/ResponseCatGang/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseCatGang/Panel/ResponseCGBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseCatGang/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseCatGang/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseCatGang/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 20 )
+text = "Sentence 1"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseCatGang"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseCatGang"]
+
+[node name="Tween" type="Tween" parent="DialogueCombat"]
+
+[node name="Node2D" type="Node2D" parent="DialogueCombat"]
+
+[node name="PropositionBox" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.112
+anchor_right = 0.703
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -61.68
+margin_right = 109.128
+margin_bottom = 129.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="DialogueCombat/PropositionBox/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/PropositionBox/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PropositionText" type="RichTextLabel" parent="DialogueCombat/PropositionBox/MarginContainer/HBoxContainer"]
+margin_right = 610.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 610, 31 )
+custom_fonts/normal_font = SubResource( 12 )
+
+[node name="Prop1Btn" type="Button" parent="DialogueCombat"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 303.0
+margin_top = 450.0
+margin_right = 471.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Prop1Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 167.0
+margin_bottom = 37.072
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "Proposition 1"
+text = "Proposition 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBTN" type="Button" parent="DialogueCombat"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 610.0
+margin_top = 403.0
+margin_right = 716.0
+margin_bottom = 439.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/CloseBTN"]
+margin_top = -1.0
+margin_right = 153.0
+margin_bottom = 40.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 24 )
+text = "Return"
+
+[node name="Prop2Btn" type="Button" parent="DialogueCombat"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 560.0
+margin_top = 449.0
+margin_right = 724.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Prop2Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 36.694
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "Proposition 2"
+text = "Proposition 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameTag" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 6.0
+margin_top = 520.0
+margin_right = 134.0
+margin_bottom = 556.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/NameTag"]
+margin_right = 128.0
+margin_bottom = 36.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/NameTag/Panel"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 34.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/NameTag/Panel/MarginContainer"]
+visible = false
+margin_right = 110.0
+margin_bottom = 28.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/NameTag/Panel/MarginContainer"]
+margin_right = 110.0
+margin_bottom = 28.0
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/NameTag"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/NameTag"]
+
+[node name="PlayerHealthUI" parent="DialogueCombat" instance=ExtResource( 1 )]
+
+[connection signal="pressed" from="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="DialogueCombat" method="_on_argueBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/AcclaimedBTN" to="DialogueCombat" method="_on_AcclaimedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/1stMovie" to="DialogueCombat" method="_on_1stMovie_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN" to="DialogueCombat" method="_on_T2TBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/2ndMovie" to="DialogueCombat" method="_on_2ndMovie_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN" to="DialogueCombat" method="_on_MonsterBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/3rdMovie" to="DialogueCombat" method="_on_3rdMovie_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN" to="DialogueCombat" method="_on_FamilyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/AllMovies" to="DialogueCombat" method="_on_AllMovies_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN" to="DialogueCombat" method="_on_NotWantBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN" to="DialogueCombat" method="_on_OldSelfBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN" to="DialogueCombat" method="_on_KnewOfLoveBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN" to="DialogueCombat" method="_on_FallInLoveBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN" to="DialogueCombat" method="_on_LoveAsMuchBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN" to="DialogueCombat" method="_on_MadeYouHappyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN" to="DialogueCombat" method="_on_TriedGetWayBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN" to="DialogueCombat" method="_on_ShowerGiftsBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN" to="DialogueCombat" method="_on_PincerBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/FixedBTN" to="DialogueCombat" method="_on_FixedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN" to="DialogueCombat" method="_on_OrphanTrickedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/ThreeCategoriesBTN" to="DialogueCombat" method="_on_ThreeCategoriesBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN" to="DialogueCombat" method="_on_FellOffBikeBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/detectMovieBTN" to="DialogueCombat" method="_on_detectMovieBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN" to="DialogueCombat" method="_on_CatGangBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/PressuredBTN" to="DialogueCombat" method="_on_PressuredBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer/ScarierBTN" to="DialogueCombat" method="_on_ScarierBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer/HappyBTN" to="DialogueCombat" method="_on_OrphanTrickedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer/HappyBTN" to="DialogueCombat" method="_on_HappyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2/ChaseBTN" to="DialogueCombat" method="_on_ChaseBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FourthArgument/Panel/MarginContainer/Panel/HBoxContainer2/CharacterBTN" to="DialogueCombat" method="_on_CharacterBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer/InterestedBTN" to="DialogueCombat" method="_on_InterestedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer/CollabBTN" to="DialogueCombat" method="_on_CollabBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2/HumanWantBTN" to="DialogueCombat" method="_on_HumanWantBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/FifthArgument/Panel/MarginContainer/Panel/HBoxContainer2/CastBTN" to="DialogueCombat" method="_on_CastBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN" to="DialogueCombat" method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN" to="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer/RichTextLabel" method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseAcclaimed/Timer" to="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseAcclaimed/Tween" to="DialogueCombat/ResponseAcclaimed" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel/Response1stBTN" to="DialogueCombat" method="_on_Response1stBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response1stMovie/Timer" to="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response1stMovie/Tween" to="DialogueCombat/Response1stMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel/Response2ndBTN" to="DialogueCombat" method="_on_Response2ndBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response2ndMovie/Timer" to="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response2ndMovie/Tween" to="DialogueCombat/Response2ndMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel/Response3rdBTN" to="DialogueCombat" method="_on_Response3rdBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response3rdMovie/Timer" to="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response3rdMovie/Tween" to="DialogueCombat/Response3rdMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel/ResponseAllBTN" to="DialogueCombat" method="_on_ResponseAllBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseAllMovies/Timer" to="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseAllMovies/Tween" to="DialogueCombat/ResponseAllMovies" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseT2T/Panel/ResponseT2TBTN" to="DialogueCombat" method="_on_ResponseT2TBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseT2T/Timer" to="DialogueCombat/ResponseT2T/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseT2T/Tween" to="DialogueCombat/ResponseT2T" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseMonster/Panel/ResponseMonsterBTN" to="DialogueCombat" method="_on_ResponseMonsterBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseMonster/Timer" to="DialogueCombat/ResponseMonster/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseMonster/Tween" to="DialogueCombat/ResponseMonster" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFamily/Panel/ResponseFamilyBTN" to="DialogueCombat" method="_on_ResponseFamilyBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFamily/Timer" to="DialogueCombat/ResponseFamily/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFamily/Tween" to="DialogueCombat/ResponseFamily" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseNotWant/Panel/ResponseNotWantBTN" to="DialogueCombat" method="_on_ResponseNotWantBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseNotWant/Timer" to="DialogueCombat/ResponseNotWant/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseNotWant/Tween" to="DialogueCombat/ResponseNotWant" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseOldSelf/Panel/ResponseOldSelfBTN" to="DialogueCombat" method="_on_ResponseOldSelfBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseOldSelf/Timer" to="DialogueCombat/ResponseOldSelf/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseOldSelf/Tween" to="DialogueCombat/ResponseOldSelf" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseKnewOfLove/Panel/ResponseKOLBTN" to="DialogueCombat" method="_on_ResponseKOLBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseKnewOfLove/Timer" to="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseKnewOfLove/Tween" to="DialogueCombat/ResponseKnewOfLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFallInLove/Panel/ResponseFILBTN" to="DialogueCombat" method="_on_ResponseFILBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFallInLove/Timer" to="DialogueCombat/ResponseFallInLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFallInLove/Tween" to="DialogueCombat/ResponseFallInLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseLoveAsMuch/Panel/ResponseLAMBTN" to="DialogueCombat" method="_on_ResponseLAMBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseLoveAsMuch/Timer" to="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseLoveAsMuch/Tween" to="DialogueCombat/ResponseLoveAsMuch" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseMadeYouHappy/Panel/ResponseMYHBTN" to="DialogueCombat" method="_on_ResponseMYHBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseMadeYouHappy/Timer" to="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseMadeYouHappy/Tween" to="DialogueCombat/ResponseMadeYouHappy" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseTriedGetWay/Panel/ResponseTGWBTN" to="DialogueCombat" method="_on_ResponseTGWBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseTriedGetWay/Timer" to="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseTriedGetWay/Tween" to="DialogueCombat/ResponseTriedGetWay" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseShowerGifts/Panel/ResponseSGBTN" to="DialogueCombat" method="_on_ResponseSGBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseShowerGifts/Timer" to="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseShowerGifts/Tween" to="DialogueCombat/ResponseShowerGifts" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponsePincer/Panel/ResponsePincerBTN" to="DialogueCombat" method="_on_ResponsePincerBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponsePincer/Timer" to="DialogueCombat/ResponsePincer/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponsePincer/Tween" to="DialogueCombat/ResponsePincer" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseOrphanTricked/Panel/ResponseOTBTN" to="DialogueCombat" method="_on_ResponseOTBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseOrphanTricked/Timer" to="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseOrphanTricked/Tween" to="DialogueCombat/ResponseOrphanTricked" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFellOffBike/Panel/ResponseFOBBTN" to="DialogueCombat" method="_on_ResponseFOBBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFellOffBike/Timer" to="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFellOffBike/Tween" to="DialogueCombat/ResponseFellOffBike" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseCatGang/Panel/ResponseCGBTN" to="DialogueCombat" method="_on_ResponseCGBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseCatGang/Timer" to="DialogueCombat/ResponseCatGang/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseCatGang/Tween" to="DialogueCombat/ResponseCatGang" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Prop1Btn" to="DialogueCombat" method="_on_Prop1Btn_pressed"]
+[connection signal="pressed" from="DialogueCombat/CloseBTN" to="DialogueCombat" method="_on_CloseBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/Prop2Btn" to="DialogueCombat" method="_on_Prop2Btn_pressed"]
+[connection signal="timeout" from="DialogueCombat/NameTag/Timer" to="DialogueCombat/NameTag/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/NameTag/Tween" to="DialogueCombat/NameTag" method="_on_Tween_tween_completed"]

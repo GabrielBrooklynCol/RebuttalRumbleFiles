@@ -4,7 +4,7 @@ extends RichTextLabel
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var dialog = ["There's no old self there's just the Zerksees self. The self which only commands respect and fear. If they don't recognized that, then they fail to learn who's top dog. You better start learning. "]
+var dialog = ["There's no old self there's just the Zerksees self. The self which only commands respect and fear. If they don't recognized that, then they fail to learn who's top dog. It sounding like you're in need of learning."]
 
 var page = 0 #This is in in negative 2 in order to give a longer time for the picked response to remain.
 

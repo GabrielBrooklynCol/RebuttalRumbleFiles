@@ -9,6 +9,7 @@
 [ext_resource path="res://Stage_1_Boss.tscn" type="PackedScene" id=7]
 
 [node name="Level_1Section3" type="Node2D"]
+pause_mode = 2
 
 [node name="Player1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 84, 578 )

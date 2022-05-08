@@ -1,0 +1,2391 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://DialogBattle/ResponseLabel.gd" type="Script" id=3]
+[ext_resource path="res://DialogBattle2/2ndMovieLabel.gd" type="Script" id=4]
+[ext_resource path="res://DialogBattle2/AllMoviesLabel.gd" type="Script" id=5]
+[ext_resource path="res://DialogBattle2/1stMovieLabel.gd" type="Script" id=6]
+[ext_resource path="res://DialogBattle2/3rdMovieLabel.gd" type="Script" id=7]
+[ext_resource path="res://DialogBattle1(Re-Work)/DialogUI.gd" type="Script" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://PlayerHealthUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=11]
+[ext_resource path="res://PARALLAX_BACKGROUND_SCENES/BATTLE_SCENE(FINAL).png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 7
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=28]
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=32]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=33]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=34]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=26]
+font_path = "res://Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=35]
+font_data = SubResource( 26 )
+
+[sub_resource type="DynamicFont" id=36]
+size = 9
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=37]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=39]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=41]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=42]
+font_path = "res://Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=43]
+font_data = SubResource( 42 )
+
+[sub_resource type="DynamicFont" id=44]
+size = 9
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=45]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=47]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=48]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=49]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=50]
+font_path = "res://Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=51]
+font_data = SubResource( 50 )
+
+[sub_resource type="DynamicFont" id=52]
+size = 9
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=53]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=54]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=55]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=56]
+size = 36
+font_data = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="DialogueCombat" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Player" parent="DialogueCombat" instance=ExtResource( 9 )]
+position = Vector2( -2, 30 )
+
+[node name="Enemy" type="KinematicBody2D" parent="DialogueCombat"]
+
+[node name="EnemyDialogue" type="MarginContainer" parent="DialogueCombat/Enemy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 301.0
+margin_top = 191.5
+margin_right = 723.0
+margin_bottom = 448.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_styles/panel = SubResource( 27 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Enemy/EnemyDialogue"]
+margin_right = 422.0
+margin_bottom = 257.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 410.0
+margin_bottom = 245.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyText" type="RichTextLabel" parent="DialogueCombat/Enemy/EnemyDialogue/MarginContainer/HBoxContainer"]
+margin_right = 395.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 395, 0 )
+custom_fonts/normal_font = SubResource( 28 )
+text = "A tyke like you has no idea what you’re up against. The strong fell under my boot and the stronger fall under my control. That just leaves the strongest, me! Even my own gang saw me as a monster!"
+
+[node name="Sprite" type="Sprite" parent="DialogueCombat/Enemy"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="DialogueCombat/Enemy/Sprite"]
+position = Vector2( 895, 380 )
+scale = Vector2( 6.03125, 6.79688 )
+frames = SubResource( 29 )
+
+[node name="ArgueOrProposition" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -2.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ArgueOrProposition"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ArgueOrProposition/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.19
+
+[node name="argueBTN" type="Button" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_right = 174.051
+margin_bottom = 128.0
+rect_min_size = Vector2( 174.051, 0 )
+action_mode = 0
+text = "ARGUE"
+
+[node name="Control" type="Control" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 178.0
+margin_right = 766.967
+margin_bottom = 128.0
+rect_min_size = Vector2( 588.967, 0 )
+
+[node name="propositionBTN" type="Button" parent="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer"]
+margin_left = 770.0
+margin_right = 1002.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 232, 0 )
+text = "Propositions"
+
+[node name="DialogOptionsContainer" type="MarginContainer" parent="DialogueCombat"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/DialogOptionsContainer"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 31 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/DialogOptionsContainer/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MostFearedBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 32 )
+text = "Doesn’t it get lonely being the most feared? "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="T2TBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 33 )
+custom_fonts/normal_font = SubResource( 34 )
+bbcode_text = "You can't be the best when there were gangs and villagers that stood toe to toe against you
+"
+text = "You can't be the best when there were gangs and villagers that stood toe to toe against you
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonsterBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 35 )
+text = " You’'ve made yourself an easy target for your own gang to think that"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="FamilyBTN" type="Button" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 37 )
+text = "Your gang see you as the head of it's family "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/SecondArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 38 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/SecondArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotWantBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 224.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 39 )
+text = "Did you ever have the feeling that she didn’t want to be with you?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OldSelfBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_right = 220.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 220, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN"]
+anchor_left = -1.0
+margin_left = 218.0
+margin_right = 224.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 39 )
+text = "They have done that in the hopes that you’d be back to your old self.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 224.0
+margin_right = 775.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 551, 0 )
+
+[node name="KnewOfLoveBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 40 )
+custom_fonts/normal_font = SubResource( 41 )
+text = "Your gang knew about your love and left with just the two of you here."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FallInLoveBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+visible = false
+margin_left = 779.0
+margin_right = 982.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN"]
+margin_right = 203.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+custom_fonts/mono_font = SubResource( 40 )
+custom_fonts/normal_font = SubResource( 41 )
+text = "They did that in the hopes she would fall in love with them."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoveAsMuchBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 43 )
+bbcode_text = "You love your gang just as much you do Cat."
+text = "You love your gang just as much you do Cat."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadeYouHappyBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_right = 225.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 225, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 43 )
+text = "But they didn’t. They left you with her, knowing she made you happy."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 229.0
+margin_right = 789.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="TriedGetWayBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 44 )
+custom_fonts/normal_font = SubResource( 45 )
+text = " It makes me wonder how the gang tried getting in the way of your love"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowerGiftsBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+visible = false
+margin_left = 793.0
+margin_right = 999.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 44 )
+custom_fonts/normal_font = SubResource( 45 )
+text = "They did that so you can shower them with gifts instead."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirdArgument" type="MarginContainer" parent="DialogueCombat"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -144.0
+margin_right = -4.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ThirdArgument"]
+margin_right = 1018.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ThirdArgument/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel"]
+anchor_left = 0.001
+anchor_right = 0.244
+anchor_bottom = 0.078
+margin_left = 1.039
+margin_right = 757.796
+margin_bottom = 39.016
+rect_min_size = Vector2( 1000, 0 )
+rect_scale = Vector2( 1.01616, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PincerBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 214, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN"]
+anchor_left = -1.0
+margin_left = 215.0
+margin_right = 214.0
+margin_bottom = 49.0
+rect_min_size = Vector2( -2, 6 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 47 )
+text = "Your gang leaving didn’t stop them from believing you’re their leader."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 218.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 556, 0 )
+
+[node name="OrphanTrickedBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer"]
+margin_left = 778.0
+margin_right = 981.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 203, 49 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN"]
+margin_top = -1.0
+margin_right = 206.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 48 )
+custom_fonts/normal_font = SubResource( 49 )
+text = "Out of revenge, one of the orphans tricked your team to turn against you. "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel"]
+margin_left = 2.0
+margin_top = 78.0
+margin_right = 1002.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 899, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FellOffBikeBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_right = 223.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 223, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN"]
+margin_right = 223.0
+margin_bottom = 50.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 51 )
+text = "This was all done to make you feel guilty for how you responded to FellOffDaBike's death."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 227.0
+margin_right = 787.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 560, 45 )
+
+[node name="CatGangBTN" type="Button" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2"]
+margin_left = 791.0
+margin_right = 997.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 206, 48 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN"]
+margin_right = 206.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_fonts/mono_font = SubResource( 52 )
+custom_fonts/normal_font = SubResource( 53 )
+text = "They’ve left you with the hope that you and Cat will start your own gang.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResponseAcclaimed" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAcclaimed"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseMostFearedBTN" type="Button" parent="DialogueCombat/ResponseAcclaimed/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 944.0
+margin_top = 48.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseAcclaimed/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 929.0
+margin_bottom = 78.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer"]
+visible = false
+margin_right = 921.0
+margin_bottom = 72.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer"]
+margin_right = 921.0
+margin_bottom = 72.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseAcclaimed"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseAcclaimed"]
+
+[node name="Response1stMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1019.0
+margin_bottom = 585.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response1stMovie"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response1stMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+script = ExtResource( 6 )
+
+[node name="Response1stBTN" type="Button" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel/Response1stBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response1stMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response1stMovie"]
+
+[node name="Response2ndMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response2ndMovie"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response2ndMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+script = ExtResource( 4 )
+
+[node name="Response2ndBTN" type="Button" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel/Response2ndBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response2ndMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response2ndMovie"]
+
+[node name="Response3rdMovie" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response3rdMovie"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/Response3rdMovie/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+script = ExtResource( 7 )
+
+[node name="Response3rdBTN" type="Button" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel/Response3rdBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/Response3rdMovie"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/Response3rdMovie"]
+
+[node name="ResponseAllMovies" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 2.0
+margin_top = 496.0
+margin_right = 1022.0
+margin_bottom = 641.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAllMovies"]
+margin_right = 1020.0
+margin_bottom = 145.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseAllMovies/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 1010.0
+margin_bottom = 137.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer"]
+visible = false
+margin_right = 1001.0
+margin_bottom = 128.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer"]
+margin_right = 1001.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+script = ExtResource( 5 )
+
+[node name="ResponseAllBTN" type="Button" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 834.0
+margin_top = 65.0
+margin_right = 1003.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel/ResponseAllBTN"]
+anchor_bottom = 0.311
+margin_left = 48.0
+margin_top = 19.0
+margin_right = 120.0
+margin_bottom = 42.785
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseAllMovies"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseAllMovies"]
+
+[node name="ResponseT2T" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseT2T"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseT2TBTN" type="Button" parent="DialogueCombat/ResponseT2T/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseT2T/Panel/ResponseT2TBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseT2T/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseT2T/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseT2T/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseT2T"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseT2T"]
+
+[node name="ResponseMonster" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMonster"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseMonsterBTN" type="Button" parent="DialogueCombat/ResponseMonster/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMonster/Panel/ResponseMonsterBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseMonster/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMonster/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMonster/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseMonster"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseMonster"]
+
+[node name="ResponseFamily" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFamily"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseFamilyBTN" type="Button" parent="DialogueCombat/ResponseFamily/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFamily/Panel/ResponseFamilyBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFamily/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFamily/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFamily/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFamily"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFamily"]
+
+[node name="ResponseNotWant" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseNotWant"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseNotWantBTN" type="Button" parent="DialogueCombat/ResponseNotWant/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseNotWant/Panel/ResponseNotWantBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseNotWant/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseNotWant/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseNotWant/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseNotWant"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseNotWant"]
+
+[node name="ResponseOldSelf" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOldSelf"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseOldSelfBTN" type="Button" parent="DialogueCombat/ResponseOldSelf/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOldSelf/Panel/ResponseOldSelfBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseOldSelf/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOldSelf/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOldSelf/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseOldSelf"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseOldSelf"]
+
+[node name="ResponseKnewOfLove" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseKnewOfLove"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseKOLBTN" type="Button" parent="DialogueCombat/ResponseKnewOfLove/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseKnewOfLove/Panel/ResponseKOLBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseKnewOfLove/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseKnewOfLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseKnewOfLove"]
+
+[node name="ResponseFallInLove" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFallInLove"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseFILBTN" type="Button" parent="DialogueCombat/ResponseFallInLove/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFallInLove/Panel/ResponseFILBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFallInLove/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFallInLove/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFallInLove/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFallInLove"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFallInLove"]
+
+[node name="ResponseLoveAsMuch" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseLoveAsMuch"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseLAMBTN" type="Button" parent="DialogueCombat/ResponseLoveAsMuch/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/ResponseLAMBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseLoveAsMuch/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseLoveAsMuch"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseLoveAsMuch"]
+
+[node name="ResponseMadeYouHappy" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMadeYouHappy"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseMYHBTN" type="Button" parent="DialogueCombat/ResponseMadeYouHappy/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/ResponseMYHBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseMadeYouHappy/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseMadeYouHappy"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseMadeYouHappy"]
+
+[node name="ResponseTriedGetWay" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseTriedGetWay"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseTGWBTN" type="Button" parent="DialogueCombat/ResponseTriedGetWay/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseTriedGetWay/Panel/ResponseTGWBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseTriedGetWay/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseTriedGetWay"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseTriedGetWay"]
+
+[node name="ResponseShowerGifts" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseShowerGifts"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseSGBTN" type="Button" parent="DialogueCombat/ResponseShowerGifts/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseShowerGifts/Panel/ResponseSGBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseShowerGifts/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseShowerGifts"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseShowerGifts"]
+
+[node name="ResponsePincer" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponsePincer"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponsePincerBTN" type="Button" parent="DialogueCombat/ResponsePincer/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponsePincer/Panel/ResponsePincerBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponsePincer/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponsePincer/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponsePincer/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponsePincer"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponsePincer"]
+
+[node name="ResponseOrphanTricked" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOrphanTricked"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseOTBTN" type="Button" parent="DialogueCombat/ResponseOrphanTricked/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOrphanTricked/Panel/ResponseOTBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseOrphanTricked/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseOrphanTricked"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseOrphanTricked"]
+
+[node name="ResponseFellOffBike" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFellOffBike"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseFOBBTN" type="Button" parent="DialogueCombat/ResponseFellOffBike/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFellOffBike/Panel/ResponseFOBBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseFellOffBike/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseFellOffBike"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseFellOffBike"]
+
+[node name="ResponseCatGang" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 5.0
+margin_top = 550.0
+margin_right = 1022.0
+margin_bottom = 639.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseCatGang"]
+margin_right = 1017.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="ResponseCGBTN" type="Button" parent="DialogueCombat/ResponseCatGang/Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 926.0
+margin_top = 45.0
+margin_right = 1008.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseCatGang/Panel/ResponseCGBTN"]
+anchor_bottom = 0.311
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 31.383
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "-->"
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/ResponseCatGang/Panel"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 1010.0
+margin_bottom = 47.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/ResponseCatGang/Panel/MarginContainer"]
+visible = false
+margin_right = 1002.0
+margin_bottom = 41.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/ResponseCatGang/Panel/MarginContainer"]
+margin_right = 1002.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Sentence 1"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/ResponseCatGang"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/ResponseCatGang"]
+
+[node name="Tween" type="Tween" parent="DialogueCombat"]
+
+[node name="Node2D" type="Node2D" parent="DialogueCombat"]
+
+[node name="PropositionBox" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.112
+anchor_right = 0.703
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -61.68
+margin_right = 109.128
+margin_bottom = 129.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_styles/panel = SubResource( 27 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/PropositionBox"]
+margin_right = 634.0
+margin_bottom = 439.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="DialogueCombat/PropositionBox/MarginContainer"]
+visible = false
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueCombat/PropositionBox/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 622.0
+margin_bottom = 427.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PropositionText" type="RichTextLabel" parent="DialogueCombat/PropositionBox/MarginContainer/HBoxContainer"]
+margin_right = 610.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 610, 31 )
+custom_fonts/normal_font = SubResource( 28 )
+
+[node name="Prop1Btn" type="Button" parent="DialogueCombat"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 303.0
+margin_top = 450.0
+margin_right = 471.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Prop1Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 167.0
+margin_bottom = 37.072
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "Proposition 1"
+text = "Proposition 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBTN" type="Button" parent="DialogueCombat"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 610.0
+margin_top = 403.0
+margin_right = 716.0
+margin_bottom = 439.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/CloseBTN"]
+margin_top = -1.0
+margin_right = 153.0
+margin_bottom = 40.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 56 )
+text = "Return"
+
+[node name="Prop2Btn" type="Button" parent="DialogueCombat"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 560.0
+margin_top = 449.0
+margin_right = 724.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/Prop2Btn"]
+anchor_bottom = 0.311
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 164.0
+margin_bottom = 36.694
+rect_min_size = Vector2( 72, 44 )
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_text = "Proposition 2"
+text = "Proposition 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameTag" type="MarginContainer" parent="DialogueCombat"]
+visible = false
+margin_left = 6.0
+margin_top = 520.0
+margin_right = 134.0
+margin_bottom = 556.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/NameTag"]
+margin_right = 128.0
+margin_bottom = 36.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueCombat/NameTag/Panel"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 34.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DialogueCombat/NameTag/Panel/MarginContainer"]
+visible = false
+margin_right = 110.0
+margin_bottom = 28.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCombat/NameTag/Panel/MarginContainer"]
+margin_right = 110.0
+margin_bottom = 28.0
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="DialogueCombat/NameTag"]
+wait_time = 0.057
+autostart = true
+
+[node name="Tween" type="Tween" parent="DialogueCombat/NameTag"]
+
+[node name="PlayerHealthUI" parent="DialogueCombat" instance=ExtResource( 10 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 512, 320 )
+texture = ExtResource( 12 )
+
+[connection signal="pressed" from="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="DialogueCombat" method="_on_argueBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN" to="DialogueCombat" method="_on_MostFearedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN" to="DialogueCombat" method="_on_T2TBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN" to="DialogueCombat" method="_on_MonsterBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN" to="DialogueCombat" method="_on_FamilyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN" to="DialogueCombat" method="_on_KnewOfLoveBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN" to="DialogueCombat" method="_on_FallInLoveBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN" to="DialogueCombat" method="_on_LoveAsMuchBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/MadeYouHappyBTN" to="DialogueCombat" method="_on_MadeYouHappyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/TriedGetWayBTN" to="DialogueCombat" method="_on_TriedGetWayBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/ShowerGiftsBTN" to="DialogueCombat" method="_on_ShowerGiftsBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/PincerBTN" to="DialogueCombat" method="_on_PincerBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer/OrphanTrickedBTN" to="DialogueCombat" method="_on_OrphanTrickedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/FellOffBikeBTN" to="DialogueCombat" method="_on_FellOffBikeBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ThirdArgument/Panel/MarginContainer/Panel/HBoxContainer2/CatGangBTN" to="DialogueCombat" method="_on_CatGangBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN" to="DialogueCombat" method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAcclaimed/Panel/ResponseMostFearedBTN" to="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer/RichTextLabel" method="_on_ResponseMostFearedBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseAcclaimed/Timer" to="DialogueCombat/ResponseAcclaimed/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseAcclaimed/Tween" to="DialogueCombat/ResponseAcclaimed" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel/Response1stBTN" to="DialogueCombat" method="_on_Response1stBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response1stMovie/Timer" to="DialogueCombat/Response1stMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response1stMovie/Tween" to="DialogueCombat/Response1stMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel/Response2ndBTN" to="DialogueCombat" method="_on_Response2ndBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response2ndMovie/Timer" to="DialogueCombat/Response2ndMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response2ndMovie/Tween" to="DialogueCombat/Response2ndMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel/Response3rdBTN" to="DialogueCombat" method="_on_Response3rdBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/Response3rdMovie/Timer" to="DialogueCombat/Response3rdMovie/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/Response3rdMovie/Tween" to="DialogueCombat/Response3rdMovie" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel/ResponseAllBTN" to="DialogueCombat" method="_on_ResponseAllBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseAllMovies/Timer" to="DialogueCombat/ResponseAllMovies/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseAllMovies/Tween" to="DialogueCombat/ResponseAllMovies" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseT2T/Panel/ResponseT2TBTN" to="DialogueCombat" method="_on_ResponseT2TBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseT2T/Timer" to="DialogueCombat/ResponseT2T/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseT2T/Tween" to="DialogueCombat/ResponseT2T" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseMonster/Panel/ResponseMonsterBTN" to="DialogueCombat" method="_on_ResponseMonsterBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseMonster/Timer" to="DialogueCombat/ResponseMonster/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseMonster/Tween" to="DialogueCombat/ResponseMonster" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFamily/Panel/ResponseFamilyBTN" to="DialogueCombat" method="_on_ResponseFamilyBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFamily/Timer" to="DialogueCombat/ResponseFamily/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFamily/Tween" to="DialogueCombat/ResponseFamily" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseNotWant/Panel/ResponseNotWantBTN" to="DialogueCombat" method="_on_ResponseNotWantBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseNotWant/Timer" to="DialogueCombat/ResponseNotWant/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseNotWant/Tween" to="DialogueCombat/ResponseNotWant" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseOldSelf/Panel/ResponseOldSelfBTN" to="DialogueCombat" method="_on_ResponseOldSelfBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseOldSelf/Timer" to="DialogueCombat/ResponseOldSelf/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseOldSelf/Tween" to="DialogueCombat/ResponseOldSelf" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseKnewOfLove/Panel/ResponseKOLBTN" to="DialogueCombat" method="_on_ResponseKOLBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseKnewOfLove/Timer" to="DialogueCombat/ResponseKnewOfLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseKnewOfLove/Tween" to="DialogueCombat/ResponseKnewOfLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFallInLove/Panel/ResponseFILBTN" to="DialogueCombat" method="_on_ResponseFILBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFallInLove/Timer" to="DialogueCombat/ResponseFallInLove/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFallInLove/Tween" to="DialogueCombat/ResponseFallInLove" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseLoveAsMuch/Panel/ResponseLAMBTN" to="DialogueCombat" method="_on_ResponseLAMBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseLoveAsMuch/Timer" to="DialogueCombat/ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseLoveAsMuch/Tween" to="DialogueCombat/ResponseLoveAsMuch" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseMadeYouHappy/Panel/ResponseMYHBTN" to="DialogueCombat" method="_on_ResponseMYHBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseMadeYouHappy/Timer" to="DialogueCombat/ResponseMadeYouHappy/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseMadeYouHappy/Tween" to="DialogueCombat/ResponseMadeYouHappy" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseTriedGetWay/Panel/ResponseTGWBTN" to="DialogueCombat" method="_on_ResponseTGWBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseTriedGetWay/Timer" to="DialogueCombat/ResponseTriedGetWay/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseTriedGetWay/Tween" to="DialogueCombat/ResponseTriedGetWay" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseShowerGifts/Panel/ResponseSGBTN" to="DialogueCombat" method="_on_ResponseSGBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseShowerGifts/Timer" to="DialogueCombat/ResponseShowerGifts/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseShowerGifts/Tween" to="DialogueCombat/ResponseShowerGifts" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponsePincer/Panel/ResponsePincerBTN" to="DialogueCombat" method="_on_ResponsePincerBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponsePincer/Timer" to="DialogueCombat/ResponsePincer/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponsePincer/Tween" to="DialogueCombat/ResponsePincer" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseOrphanTricked/Panel/ResponseOTBTN" to="DialogueCombat" method="_on_ResponseOTBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseOrphanTricked/Timer" to="DialogueCombat/ResponseOrphanTricked/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseOrphanTricked/Tween" to="DialogueCombat/ResponseOrphanTricked" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseFellOffBike/Panel/ResponseFOBBTN" to="DialogueCombat" method="_on_ResponseFOBBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseFellOffBike/Timer" to="DialogueCombat/ResponseFellOffBike/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseFellOffBike/Tween" to="DialogueCombat/ResponseFellOffBike" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/ResponseCatGang/Panel/ResponseCGBTN" to="DialogueCombat" method="_on_ResponseCGBTN_pressed"]
+[connection signal="timeout" from="DialogueCombat/ResponseCatGang/Timer" to="DialogueCombat/ResponseCatGang/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/ResponseCatGang/Tween" to="DialogueCombat/ResponseCatGang" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="DialogueCombat/Prop1Btn" to="DialogueCombat" method="_on_Prop1Btn_pressed"]
+[connection signal="pressed" from="DialogueCombat/CloseBTN" to="DialogueCombat" method="_on_CloseBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/Prop2Btn" to="DialogueCombat" method="_on_Prop2Btn_pressed"]
+[connection signal="timeout" from="DialogueCombat/NameTag/Timer" to="DialogueCombat/NameTag/Panel/MarginContainer/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="DialogueCombat/NameTag/Tween" to="DialogueCombat/NameTag" method="_on_Tween_tween_completed"]
