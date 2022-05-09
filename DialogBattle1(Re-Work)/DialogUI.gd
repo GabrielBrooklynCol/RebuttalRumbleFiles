@@ -156,6 +156,7 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		#.............sy..........
 		#when the dialog is finished, the enemy dialogue box show up again
 		showEnemyDialogueBox()
+		playerHealth()
 		#.............sy..........
 	if dialogPage == 1 && dialogCategory == "KnewOfLove":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
@@ -196,6 +197,7 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		$SecondArgument.visible = true
 		#.............sy.............
 		showEnemyDialogueBox()
+		playerHealth()
 		#.............sy.............
 	
 	if dialogPage == 1 && dialogCategory == "TriedGetWay":
@@ -229,43 +231,45 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		#.............sy.............
 		showEnemyDialogueBox()
 		#.............sy.............
-		#Pressing Arguments for Argument 2 -- BEGIN
-		if dialogPage == 1 && dialogCategory == "OldSelf":
-			get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
-			get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "There's no old self there's just the Zerksees self. The self which only commands respect and fear."
 		
-		if dialogPage == 2 && dialogCategory == "OldSelf":
-			get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
-			get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = " If they don't recognized that, then they fail to learn who's top dog."
+	#Pressing Arguments for Argument 2 -- BEGIN
+	if dialogPage == 1 && dialogCategory == "OldSelf":
+		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "There's no old self there's just the Zerksees self. The self which only commands respect and fear."
 		
-		if dialogPage == 3 && dialogCategory == "OldSelf":
-			get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
-			get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "It sounding like you're in need of learnin."
+	if dialogPage == 2 && dialogCategory == "OldSelf":
+		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = " If they don't recognized that, then they fail to learn who's top dog."
 		
-		if dialogPage == 4 && dialogCategory == "OldSelf":
-			$ResponseAcclaimed.visible = false
-			$NameTag.visible = false
-			$SecondArgument.visible = true
+	if dialogPage == 3 && dialogCategory == "OldSelf":
+		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "It sounding like you're in need of learnin."
+		
+	if dialogPage == 4 && dialogCategory == "OldSelf":
+		$ResponseAcclaimed.visible = false
+		$NameTag.visible = false
+		$SecondArgument.visible = true
+		#.............sy.............
+		
+		showEnemyDialogueBox()
+		playerHealth()
 			#.............sy.............
-			playerHealth()
-			showEnemyDialogueBox()
-			#.............sy.............
 		
-		if dialogPage == 1 && dialogCategory == "FallInLove":
-			get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
-			get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "She wouldn't even THINK of giving em the littlest of puppy dog love!"
+	if dialogPage == 1 && dialogCategory == "FallInLove":
+		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "She wouldn't even THINK of giving em the littlest of puppy dog love!"
 		
-		if dialogPage == 2 && dialogCategory == "FallInLove":
-			get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
-			get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Better watch that tone... you soundin like yer conspirin with em."
+	if dialogPage == 2 && dialogCategory == "FallInLove":
+		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Better watch that tone... you soundin like yer conspirin with em."
 		
-		if dialogPage == 3 && dialogCategory == "FallInLove":
-			$ResponseAcclaimed.visible = false
-			$NameTag.visible = false
-			$SecongArgument.visible = true
-			#.............sy.............
-			playerHealth()
-			showEnemyDialogueBox()
+	if dialogPage == 3 && dialogCategory == "FallInLove":
+		$ResponseAcclaimed.visible = false
+		$NameTag.visible = false
+		$SecondArgument.visible = true
+		#.............sy.............
+		playerHealth()
+		showEnemyDialogueBox()
 			#.............sy.............
 			
 	
@@ -541,7 +545,7 @@ func _on_NotWantBTN_pressed():
 func _on_ResponseNotWantBTN_pressed():
 	$ResponseNotWant.visible = false
 	get_node("ResponseNotWant/Panel/MarginContainer/RichTextLabel/ResponseNotWantBTN").visible = false
-	pass # Replace with function body.
+
 
 func _on_KnewOfLoveBTN_pressed():
 	dialogPage = 0
@@ -582,7 +586,7 @@ func _on_LoveAsMuchBTN_pressed():
 func _on_ResponseLAMBTN_pressed():
 	$ResponseLoveAsMuch.visible = false
 	get_node("ResponseLoveAsMuch/Panel/MarginContainer/RichTextLabel/ResponseLAMBTN").visible = false
-	pass # Replace with function body.
+
 
 func _on_TriedGetWayBTN_pressed():
 	#$ResponseTriedGetWay.visible = true
@@ -595,8 +599,9 @@ func _on_TriedGetWayBTN_pressed():
 	hideEnemyDialogueBox()
 	#............sy...........
 	get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Naomi"
-	get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Haven’t you complained to your film crew about not following your vision?"
-
+	#get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Haven’t you complained to your film crew about not following your vision?"
+	get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "It makes me wonder how the gang tried getting in the way of your love"
+	
 func _on_ResponseTGWBTN_pressed():
 	$ResponseTriedGetWay.visible = false
 	$SecondArgument.visible = false

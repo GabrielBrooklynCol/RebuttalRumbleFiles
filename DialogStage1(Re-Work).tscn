@@ -538,6 +538,7 @@ rect_min_size = Vector2( 203, 49 )
 margin_right = 203.0
 margin_bottom = 48.0
 rect_scale = Vector2( 0.994911, 1.01738 )
+mouse_filter = 1
 custom_fonts/mono_font = SubResource( 40 )
 custom_fonts/normal_font = SubResource( 41 )
 text = "They did that in the hopes she would fall in love with them."
@@ -634,6 +635,7 @@ __meta__ = {
 }
 
 [node name="ThirdArgument" type="MarginContainer" parent="DialogueCombat"]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2313,6 +2315,8 @@ texture = ExtResource( 12 )
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/T2TBTN" to="DialogueCombat" method="_on_T2TBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/MonsterBTN" to="DialogueCombat" method="_on_MonsterBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer2/FamilyBTN" to="DialogueCombat" method="_on_FamilyBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN" to="DialogueCombat" method="_on_NotWantBTN_pressed"]
+[connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN" to="DialogueCombat" method="_on_OldSelfBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN" to="DialogueCombat" method="_on_KnewOfLoveBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/FallInLoveBTN" to="DialogueCombat" method="_on_FallInLoveBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer2/LoveAsMuchBTN" to="DialogueCombat" method="_on_LoveAsMuchBTN_pressed"]
