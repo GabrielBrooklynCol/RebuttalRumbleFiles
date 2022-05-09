@@ -46,5 +46,5 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Proposition_Collider" parent="." instance=ExtResource( 7 )]
+[node name="Proposition2_Collider" parent="." instance=ExtResource( 7 )]
 position = Vector2( 242, 570 )

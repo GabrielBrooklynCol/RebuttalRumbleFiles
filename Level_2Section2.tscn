@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_1024x640/stage_2_scene_2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://TileMap2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Proposition4_Collider.tscn" type="PackedScene" id=7]
 
 [node name="Level_2Section2" type="Node2D"]
 pause_mode = 2
@@ -43,3 +44,6 @@ tile_data = PoolIntArray( 1245184, -1073741824, 0, 1245185, -1073741824, 0, 1245
 
 [node name="Ladder" parent="." instance=ExtResource( 4 )]
 position = Vector2( 217, 576 )
+
+[node name="Proposition3_Collider" parent="." instance=ExtResource( 7 )]
+position = Vector2( 65, 576 )
