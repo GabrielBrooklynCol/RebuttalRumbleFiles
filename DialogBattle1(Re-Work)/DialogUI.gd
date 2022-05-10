@@ -22,7 +22,6 @@ export  (int) var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.player = self
-	$AudioStreamPlayer.play()
 	
 func _exit_tree():
 	Global.player = null
@@ -314,7 +313,8 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "But, I guess I don't have it in me now. Must've been convinced."
 	
 	if dialogPage == 5 && dialogCategory == "Pincer":
-		pass #Change to Level 2 Scene
+		 #Change to Level 2 Scene
+		get_tree().change_scene("res://Level_2.tscn")
 	
 
 	if dialogPage == 1 && dialogCategory == "Orphan":
