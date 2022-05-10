@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Arcade-Adventures_1.ogg-f5dc29cb5fe50a4c4ca5ba06b4299a8a.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Arcade-Adventures_1.ogg"
+dest_files=[ "res://.import/Arcade-Adventures_1.ogg-f5dc29cb5fe50a4c4ca5ba06b4299a8a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

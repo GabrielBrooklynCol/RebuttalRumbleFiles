@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Eggy-Toast-Fun.mp3_1.ogg-ea1042801974ca18f308f9fc6c2b25d4.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Eggy-Toast-Fun.mp3_1.ogg"
+dest_files=[ "res://.import/Eggy-Toast-Fun.mp3_1.ogg-ea1042801974ca18f308f9fc6c2b25d4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -22,6 +22,7 @@ export  (int) var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.player = self
+	$AudioStreamPlayer.play()
 	
 func _exit_tree():
 	Global.player = null

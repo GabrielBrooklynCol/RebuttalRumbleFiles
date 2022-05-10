@@ -10,8 +10,9 @@
 [ext_resource path="res://DialogBattle1(Re-Work)/DialogUI.gd" type="Script" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://PlayerHealthUI.tscn" type="PackedScene" id=10]
-[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=11]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 1 Boss/Stage 1 Boss-Stand.png" type="Texture" id=11]
 [ext_resource path="res://PARALLAX_BACKGROUND_SCENES/BATTLE_SCENE(FINAL).png" type="Texture" id=12]
+[ext_resource path="res://Sounds/Eggy-Toast-Fun.mp3_1.ogg" type="AudioStream" id=13]
 
 [sub_resource type="StyleBoxFlat" id=27]
 bg_color = Color( 0, 0, 0, 1 )
@@ -24,13 +25,9 @@ border_color = Color( 1, 1, 1, 1 )
 [sub_resource type="DynamicFont" id=28]
 font_data = ExtResource( 2 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 11 )
-region = Rect2( 0, 64, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
-"frames": [ SubResource( 9 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -210,7 +207,7 @@ text = "A tyke like you has no idea what you’re up against. The strong fell un
 [node name="Sprite" type="Sprite" parent="DialogueCombat/Enemy"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DialogueCombat/Enemy/Sprite"]
-position = Vector2( 895, 380 )
+position = Vector2( 848, 264 )
 scale = Vector2( 6.03125, 6.79688 )
 frames = SubResource( 29 )
 
@@ -2304,11 +2301,17 @@ autostart = true
 
 [node name="PlayerHealthUI" parent="DialogueCombat" instance=ExtResource( 10 )]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueCombat"]
+stream = ExtResource( 13 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 position = Vector2( 512, 320 )
 texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="DialogueCombat" method="_on_argueBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN" to="DialogueCombat" method="_on_MostFearedBTN_pressed"]

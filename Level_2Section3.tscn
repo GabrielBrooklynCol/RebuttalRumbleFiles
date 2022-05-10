@@ -1,19 +1,21 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
-[ext_resource path="res://PARALLAX_BACKGROUND_SCENES/SCENE_3_1024X640.png" type="Texture" id=2]
-[ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_1024x640/stage_2_scene_3.png" type="Texture" id=2]
+[ext_resource path="res://TileMap2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Hazard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Stage_2_Boss.tscn" type="PackedScene" id=6]
 
 [node name="Level_2Section3" type="Node2D"]
+pause_mode = 2
+
+[node name="Stage_2_Boss" parent="." instance=ExtResource( 6 )]
+position = Vector2( 180, 567 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 898, 582 )
-
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 1245184, 4, 0, 1245185, 4, 0, 1245186, 4, 0, 1245187, 4, 0, 1245188, 4, 0, 1245189, 4, 0, 1245190, 4, 0, 1245191, 4, 0, 1245192, 4, 0, 1245193, 4, 0, 1245194, 4, 0, 1245195, 4, 0, 1245196, 4, 0, 1245197, 4, 0, 1245198, 4, 0, 1245199, 4, 0, 1245200, 4, 0, 1245201, 4, 0, 1245202, 4, 0, 1245203, 4, 0, 1245204, 4, 0, 1245205, 4, 0, 1245206, 4, 0, 1245207, 4, 0, 1245208, 4, 0, 1245209, 4, 0, 1245210, 4, 0, 1245211, 4, 0, 1245212, 4, 0, 1245213, 4, 0, 1245214, 4, 0, 1245215, 4, 0 )
+pause_mode = 2
+position = Vector2( 96, 581 )
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -23,10 +25,6 @@ script = ExtResource( 1 )
 pause_mode = 2
 visible = false
 position = Vector2( 328, 200 )
-
-[node name="Hazard" parent="." instance=ExtResource( 6 )]
-position = Vector2( 520, 608 )
-z_index = -1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 1, 0.5 )
@@ -38,3 +36,9 @@ position = Vector2( 0, 160 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -160 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )

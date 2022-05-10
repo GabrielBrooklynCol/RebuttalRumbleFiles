@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://PARALLAX_BACKGROUND_SCENES/SCENE_3_1024X640.png" type="Texture" id=2]
@@ -7,9 +7,12 @@
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Stage_1_Boss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Level_1Section3.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/Arcade-Adventures_1.ogg" type="AudioStream" id=9]
 
 [node name="Level_1Section3" type="Node2D"]
 pause_mode = 2
+script = ExtResource( 8 )
 
 [node name="Player1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 84, 578 )
@@ -48,3 +51,6 @@ __meta__ = {
 [node name="Stage_1_Boss" parent="." instance=ExtResource( 7 )]
 pause_mode = 2
 position = Vector2( 330, 582 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
