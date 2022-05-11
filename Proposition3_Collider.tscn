@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Proposition3_Collider.gd" type="Script" id=1]
-[ext_resource path="res://Info_Collider_Assets/keyboard_key_z.png" type="Texture" id=2]
+[ext_resource path="res://Info_Collider_Assets/zbox.png" type="Texture" id=2]
 [ext_resource path="res://Info_Collider_Assets/icon.png" type="Texture" id=3]
 [ext_resource path="res://Collider_Textbox.tscn" type="PackedScene" id=4]
 
@@ -24,7 +24,6 @@ shape = SubResource( 1 )
 
 [node name="ZBoxSprite" type="Sprite" parent="."]
 position = Vector2( 0, -80 )
-scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="ZBox" type="Area2D" parent="."]

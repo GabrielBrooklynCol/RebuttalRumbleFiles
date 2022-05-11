@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sounds/Arcade-Adventures_1.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Level_1.gd" type="Script" id=11]
 [ext_resource path="res://MovingPlatform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sign.tscn" type="PackedScene" id=13]
 
 [node name="Level_1" type="Node2D"]
 pause_mode = 2
@@ -69,3 +70,7 @@ stream = ExtResource( 10 )
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 12 )]
 position = Vector2( 281, 584 )
+
+[node name="Sign" parent="." instance=ExtResource( 13 )]
+position = Vector2( 249, 592 )
+text = "Placeholder sign text"

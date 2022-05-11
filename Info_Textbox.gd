@@ -40,7 +40,8 @@ func show_textbox():
 	textbox_container.show()
 	hidden = false
 	shown = true
-	get_tree().paused = true
+	#pause part is bugged, will fix later
+	#get_tree().paused = true
 
 # Add text and read it based on the read rate
 func add_text(next_text):

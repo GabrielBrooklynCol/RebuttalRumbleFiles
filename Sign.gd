@@ -4,6 +4,7 @@ extends StaticBody2D
 var alreadyInteracted = false
 var inBody = false
 var textboxClicked = false
+export(String, MULTILINE) var text
 
 # Start by hiding the info (Z button) box
 func _ready():
@@ -17,16 +18,17 @@ func _ready():
 func _physics_process(delta):
 	if inBody == true:
 		$ZBoxSprite.show()
-		if Input.is_action_pressed("ui_interact"):
-			#Textbox pops up containing boss information
-			$Info_Textbox.add_text("Haha! Lets fight.")
+	elif inBody == false:
+		$ZBoxSprite.hide()
+	if Input.is_action_pressed("ui_interact") && inBody:
+		#Textbox pops up containing boss information
+		$Info_Textbox.add_text(text)
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT && event.pressed:
 				if $Info_Textbox.completed == true:
 					$Info_Textbox.hide_textbox()
-					get_tree().change_scene("res://DialogStage1(Re-Work).tscn")
 					textboxClicked = true
 
 func _on_ZBox_body_entered(body):
@@ -36,4 +38,3 @@ func _on_ZBox_body_entered(body):
 func _on_ZBox_body_exited(body):
 	if "Player" in body.name:
 		inBody = false
-		$ZBoxSprite.hide()

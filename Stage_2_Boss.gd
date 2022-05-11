@@ -36,3 +36,4 @@ func _on_ZBox_body_entered(body):
 func _on_ZBox_body_exited(body):
 	if "Player" in body.name:
 		inBody = false
+		$ZBoxSprite.hide()

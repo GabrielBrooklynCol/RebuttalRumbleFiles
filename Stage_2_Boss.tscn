@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Stage_2_Boss.gd" type="Script" id=1]
-[ext_resource path="res://Info_Collider_Assets/keyboard_key_z.png" type="Texture" id=2]
+[ext_resource path="res://Info_Collider_Assets/zbox.png" type="Texture" id=2]
 [ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 1 Boss/Stage 1 Boss-Stand.png" type="Texture" id=3]
 [ext_resource path="res://Info_Textbox.tscn" type="PackedScene" id=4]
 
@@ -33,7 +33,6 @@ shape = SubResource( 2 )
 
 [node name="ZBoxSprite" type="Sprite" parent="."]
 position = Vector2( -5, -76 )
-scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="ZBox" to="." method="_on_ZBox_body_entered"]
