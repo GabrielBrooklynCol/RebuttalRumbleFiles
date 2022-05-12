@@ -22,7 +22,7 @@ func _physics_process(delta):
 		$ZBoxSprite.hide()
 	if Input.is_action_pressed("ui_interact") && inBody:
 		#Textbox pops up containing boss information
-		$Info_Textbox.add_text(text)
+		$Info_Textbox.add_text("CONTROLS: \n Z key to interact with objects (Like this sign!) \n X key to open/close the inventory \n Up arrow key to jump \n Left and Right arrow keys to move left or right \n Click on the textbox to close it.")
 
 func _input(event):
 	if event is InputEventMouseButton:

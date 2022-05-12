@@ -22,7 +22,7 @@ export  (int) var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.player = self
-	
+	$AudioStreamPlayer.play()
 func _exit_tree():
 	Global.player = null
 
@@ -212,10 +212,10 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "It's easier telling you the first time I drank my happy and sleepy juice, or as we call it, booze."
 		
-	if dialogPage == 3 && dialogCategory == "TriedGetWay":
+	if dialogPage == 4 && dialogCategory == "TriedGetWay":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Zerksees"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Nah, I need to address their audacities proper"
-	if dialogPage == 2 && dialogCategory == "TriedGetWay":
+	if dialogPage == 5 && dialogCategory == "TriedGetWay":
 		get_node("SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/NotWantBTN").visible = false
 		get_node("SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/OldSelfBTN").visible = true
 		get_node("SecondArgument/Panel/MarginContainer/Panel/HBoxContainer/KnewOfLoveBTN").visible = false

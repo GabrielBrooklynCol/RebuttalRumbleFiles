@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gigakoops-Ill-Rip-Every-Tooth-Ou.mp3-5234f40ff37515a8a436c27799811d68.mp3str"
+
+[deps]
+
+source_file="res://Gigakoops-Ill-Rip-Every-Tooth-Ou.mp3"
+dest_files=[ "res://.import/Gigakoops-Ill-Rip-Every-Tooth-Ou.mp3-5234f40ff37515a8a436c27799811d68.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

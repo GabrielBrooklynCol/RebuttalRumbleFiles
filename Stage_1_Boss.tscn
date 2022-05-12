@@ -6,7 +6,7 @@
 [ext_resource path="res://Info_Collider_Assets/zbox.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14.5, 24 )
+extents = Vector2( 14.5, 35 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 46.0
@@ -15,11 +15,12 @@ radius = 46.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -9, -8 )
+position = Vector2( -9, -23.5 )
+scale = Vector2( 1, 1.48438 )
 texture = ExtResource( 1 )
 
 [node name="BossCollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2( -6, 0 )
+position = Vector2( -6, -11 )
 shape = SubResource( 1 )
 
 [node name="ZBox" type="Area2D" parent="."]
@@ -31,7 +32,7 @@ shape = SubResource( 2 )
 [node name="Info_Textbox" parent="." instance=ExtResource( 3 )]
 
 [node name="ZBoxSprite" type="Sprite" parent="."]
-position = Vector2( 0, -63 )
+position = Vector2( -2, -79 )
 texture = ExtResource( 4 )
 
 [connection signal="body_entered" from="ZBox" to="." method="_on_ZBox_body_entered"]

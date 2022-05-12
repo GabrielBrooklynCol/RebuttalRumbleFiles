@@ -20,7 +20,7 @@ position = Vector2( 70, 559 )
 z_index = -2
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )
+tile_data = PoolIntArray( 983057, 0, 0, 983059, 0, 0, 983061, 0, 0, 1048583, 0, 0, 1048592, 0, 0, 1048599, 0, 0, 1114127, 0, 0, 1114132, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179661, 0, 0, 1179668, 0, 0, 1179674, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -31,8 +31,80 @@ pause_mode = 2
 visible = false
 position = Vector2( 328, 200 )
 
-[node name="Hazard" parent="." instance=ExtResource( 5 )]
-position = Vector2( 520, 608 )
+[node name="Hazard2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 398, 595 )
+z_index = -1
+
+[node name="Hazard20" parent="." instance=ExtResource( 5 )]
+position = Vector2( 654, 533 )
+z_index = -1
+
+[node name="Hazard5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 539, 598 )
+z_index = -1
+
+[node name="Hazard16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 621, 595 )
+z_index = -1
+
+[node name="Hazard6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 511, 597 )
+z_index = -1
+
+[node name="Hazard11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 732, 597 )
+z_index = -1
+
+[node name="Hazard12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 698, 596 )
+z_index = -1
+
+[node name="Hazard13" parent="." instance=ExtResource( 5 )]
+position = Vector2( 698, 596 )
+z_index = -1
+
+[node name="Hazard14" parent="." instance=ExtResource( 5 )]
+position = Vector2( 760, 596 )
+z_index = -1
+
+[node name="Hazard15" parent="." instance=ExtResource( 5 )]
+position = Vector2( 479, 597 )
+z_index = -1
+
+[node name="Hazard7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 562, 599 )
+z_index = -1
+
+[node name="Hazard9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 592, 596 )
+z_index = -1
+
+[node name="Hazard10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 587, 574 )
+z_index = -1
+
+[node name="Hazard8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 565, 578 )
+z_index = -1
+
+[node name="Hazard3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 367, 594 )
+z_index = -1
+
+[node name="Hazard4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 220, 598 )
+z_index = -1
+
+[node name="Hazard17" parent="." instance=ExtResource( 5 )]
+position = Vector2( 219, 565 )
+z_index = -1
+
+[node name="Hazard19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 298, 564 )
+z_index = -1
+
+[node name="Hazard18" parent="." instance=ExtResource( 5 )]
+position = Vector2( 271, 565 )
 z_index = -1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -51,7 +123,8 @@ __meta__ = {
 }
 
 [node name="Proposition2_Collider" parent="." instance=ExtResource( 7 )]
-position = Vector2( 242, 570 )
+position = Vector2( 991, 577 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -35.0

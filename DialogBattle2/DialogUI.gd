@@ -170,18 +170,14 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Well, that's 20 seconds longer compared to our world's horror movies so I'd call that an accomplishment too."
 	
 	if dialogPage == 6 && dialogCategory == "secondMovie":
-		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Allison"
-		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "You can't spell 'diversed' without 'died' "
-	
-	if dialogPage == 7 && dialogCategory == "secondMovie":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
-		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "And I can't work with ignorant children and their ignorant opinions!"
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "I'll make another accomplishment by driving away you ignorant children and their ignorant opinions!"
 		#$ResponseAcclaimed.visible = false
 		#$NameTag.visible = false
 		#$DialogOptionsContainer.visible = true
 		#print(dialogCategory)
 		
-	if dialogPage == 8 && dialogCategory == "secondMovie":
+	if dialogPage == 7 && dialogCategory == "secondMovie":
 		$ResponseAcclaimed.visible = false
 		$NameTag.visible = false
 		$DialogOptionsContainer.visible = true
@@ -370,11 +366,11 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "You shouldn't speak of aspects of production you know nothing about." 
 	
-	if dialogPage == 2 && dialogCategory == "hatedWorking":
+	if dialogPage == 3 && dialogCategory == "hatedWorking":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Allison"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "We starred in a school PSA about bullying. Does that count?" 
 	
-	if dialogPage == 3 && dialogCategory == "hatedWorking":
+	if dialogPage == 4 && dialogCategory == "hatedWorking":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Knowing her words, she clearly didn't take anything from it." 
 	
@@ -397,8 +393,6 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Or does this stem from jealousy? No need to fret, your jealousy won't matter once the both of you are dined on!" 
 	
 	if dialogPage == 3 && dialogCategory == "deepDown":
-		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
-		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Or does this stem from jealousy? No need to fret, your jealousy won't matter once the both of you are dined on!" 
 		$ResponseAcclaimed.visible = false
 		$NameTag.visible = false
 		$SecondArgument.visible = true
@@ -559,14 +553,11 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 	if dialogPage == 1 && dialogCategory == "recievedPraise":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Are you referring to Deadtective? A forgettable movie that tried and failed to imitate my style!" 
-		
-	if dialogPage == 2 && dialogCategory == "recievedPraise":
-		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Naomi"
-		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "If it won best picture, then there has to be something special about it."
 	
-	if dialogPage == 3 && dialogCategory == "recievedPraise":
+	if dialogPage == 2 && dialogCategory == "recievedPraise":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Isaiah"
-		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Besides, I'm sure it can't be forgettable if it won best picture."
+		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Besides, I'm sure there's something special about it if it won best picture."
+		
 	if dialogPage == 3 && dialogCategory == "recievedPraise":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "That movie was Golden Ghoul bait! A movie reliant on gimmicks to impress a bunch of no-brains!"
@@ -732,11 +723,11 @@ func _on_ResponseMostFearedBTN_pressed(): #Response to Acclaimed
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Are you insisting I should just create the movie and that's that?"
 	
-	if dialogPage == 6 && dialogCategory == "Interested":
+	if dialogPage == 7 && dialogCategory == "Interested":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Naomi"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "You're better off not making another horror movie entirely. If people are only interested in seeing a human in a movie, then are they really interested in the movie itself?"
 	
-	if dialogPage == 7 && dialogCategory == "Interested":
+	if dialogPage == 8 && dialogCategory == "Interested":
 		get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Ghoulstein"
 		get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "Hmm."
 	
@@ -1002,7 +993,7 @@ func _on_KnewOfLoveBTN_pressed():
 	$NameTag.visible = true
 	$ResponseAcclaimed.visible = true
 	get_node("NameTag/Panel/MarginContainer/RichTextLabel").text = "Naomi"
-	get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "All those movies"
+	get_node("ResponseAcclaimed/Panel/MarginContainer/RichTextLabel").text = "The actors expressed how they hated working in your movies as of recent."
 	#$ResponseKnewOfLove.visible = true
 	#..........sy.............
 	hideEnemyDialogueBox()
@@ -1387,7 +1378,7 @@ func playerHealth():
 	#int("you lose a lift")
 	if health <= 0:
 		
-		get_tree().change_scene("res://GameOver.tscn")
+		get_tree().change_scene("res://GameOverAllison.tscn")
 	#	print("no more life")
 		
 func hideEnemyDialogueBox():

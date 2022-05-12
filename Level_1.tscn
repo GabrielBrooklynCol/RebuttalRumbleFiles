@@ -6,7 +6,7 @@
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://FallingPlatform.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Ladder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sign(Proposition).gd" type="Script" id=7]
 [ext_resource path="res://PARALLAX_BACKGROUND_SCENES/SCENE_1_1024X640.png" type="Texture" id=8]
 [ext_resource path="res://Proposition_Collider.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/Arcade-Adventures_1.ogg" type="AudioStream" id=10]
@@ -20,10 +20,10 @@ position = Vector2( -1, 0 )
 script = ExtResource( 11 )
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 137, 576 )
+position = Vector2( 32, 576 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 589843, 4, 0, 655378, 4, 0, 655379, 4, 0, 720913, 4, 0, 786448, 4, 0, 851983, 4, 0, 917518, 4, 0, 983053, 4, 0, 1048588, 4, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )
+tile_data = PoolIntArray( 589843, 4, 0, 655378, 4, 0, 655379, 4, 0, 720913, 4, 0, 786448, 4, 0, 851983, 4, 0, 917518, 4, 0, 983053, 4, 0, 1048588, 4, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -34,15 +34,9 @@ pause_mode = 2
 visible = false
 position = Vector2( 328, 200 )
 
-[node name="Hazard" parent="." instance=ExtResource( 5 )]
-position = Vector2( 305, 520 )
-z_index = -1
-
 [node name="FallingPlatform" parent="." instance=ExtResource( 6 )]
-position = Vector2( 369, 560 )
-
-[node name="Ladder" parent="." instance=ExtResource( 7 )]
-position = Vector2( 225, 576 )
+visible = false
+position = Vector2( 360, 540 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 1, 0.5 )
@@ -60,17 +54,57 @@ __meta__ = {
 }
 
 [node name="Proposition_Collider" parent="." instance=ExtResource( 9 )]
-position = Vector2( 49, 568 )
+position = Vector2( 999, 577 )
+
+[node name="Hazard" parent="." instance=ExtResource( 5 )]
+position = Vector2( 391, 595 )
+z_index = -1
+
+[node name="Hazard4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 271, 596 )
+z_index = -1
+
+[node name="Hazard5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 301, 595 )
+z_index = -1
+
+[node name="Hazard6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 330, 594 )
+z_index = -1
+
+[node name="Hazard3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 359, 593 )
+z_index = -1
 
 [node name="Hazard2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 193, 600 )
+position = Vector2( 421, 597 )
+
+[node name="Hazard7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 481, 596 )
+
+[node name="Hazard8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 452, 597 )
+
+[node name="Hazard9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 614, 596 )
+
+[node name="Hazard11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 588, 598 )
+
+[node name="Hazard10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 452, 597 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 12 )]
+position = Vector2( 282, 553 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-
-[node name="MovingPlatform" parent="." instance=ExtResource( 12 )]
-position = Vector2( 281, 584 )
+volume_db = -35.0
 
 [node name="Sign" parent="." instance=ExtResource( 13 )]
-position = Vector2( 249, 592 )
+position = Vector2( 94, 567 )
 text = "Placeholder sign text"
+
+[node name="Sign(Prop)" parent="." instance=ExtResource( 13 )]
+position = Vector2( 893, 567 )
+script = ExtResource( 7 )

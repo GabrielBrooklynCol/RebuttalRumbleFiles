@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
-[ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_1024x640/stage_2_scene_3.png" type="Texture" id=2]
-[ext_resource path="res://TileMap2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_2024x640/stage 2 scene 3 revised.png" type="Texture" id=2]
+[ext_resource path="res://TileMap3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Stage_2_Boss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level_2Section3.gd" type="Script" id=7]
+[ext_resource path="res://Gigakoops-Death-In-General.ogg" type="AudioStream" id=8]
 
 [node name="Level_2Section3" type="Node2D"]
 pause_mode = 2
+script = ExtResource( 7 )
 
 [node name="Stage_2_Boss" parent="." instance=ExtResource( 6 )]
-position = Vector2( 180, 567 )
+position = Vector2( 718, 583 )
 
 [node name="Player1" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
@@ -32,13 +35,22 @@ scroll_base_scale = Vector2( 1, 0.5 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, 160 )
-texture = ExtResource( 2 )
+position = Vector2( 2, 250 )
+scale = Vector2( 0.995117, 1.19687 )
 centered = false
 offset = Vector2( 0, -160 )
+
+[node name="Stage2Scene3Revised" type="Sprite" parent="ParallaxBackground/ParallaxLayer/Sprite"]
+position = Vector2( 514.512, 146.214 )
+scale = Vector2( 1, 1.10444 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0 )
+[node name="TileMap2" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 1245184, 2, 0, 1245185, 2, 0, 1245186, 2, 0, 1245187, 2, 0, 1245188, 2, 0, 1245189, 2, 0, 1245190, 2, 0, 1245191, 2, 0, 1245192, 2, 0, 1245193, 2, 0, 1245194, 2, 0, 1245195, 2, 0, 1245196, 2, 0, 1245197, 2, 0, 1245198, 2, 0, 1245199, 2, 0, 1245200, 2, 0, 1245201, 2, 0, 1245202, 2, 0, 1245203, 2, 0, 1245204, 2, 0, 1245205, 2, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 2, 0, 1245211, 2, 0, 1245212, 2, 0, 1245213, 2, 0, 1245214, 2, 0, 1245215, 2, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -35.0

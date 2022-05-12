@@ -1,0 +1,79 @@
+[gd_resource type="Theme" load_steps=14 format=2]
+
+[ext_resource path="res://fonts/BetterPixels.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 44
+outline_size = 2
+outline_color = Color( 0.117647, 0.101961, 0.0235294, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.00784314, 0.0627451, 0.054902, 1 )
+shadow_color = Color( 0.0117647, 0, 0, 0.6 )
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0313726, 0.552941, 0.392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.133333, 0.588235, 0.121569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0117647, 0.298039, 0.129412, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.207843, 0.101961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.403922, 0.572549, 0.411765, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.239216, 0.309804, 0.0156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.403922, 0.572549, 0.411765, 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 30
+font_data = ExtResource( 1 )
+
+[resource]
+Button/colors/font_color = Color( 0.521569, 0.329412, 0.223529, 1 )
+Button/colors/font_color_hover = Color( 0.00784314, 0.113725, 0.0313726, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 1 )
+Button/styles/disabled = SubResource( 2 )
+Button/styles/focus = SubResource( 3 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 6 )
+Label/colors/font_color = Color( 0.0196078, 0.0941176, 0.0784314, 1 )
+Label/colors/font_color_shadow = Color( 0.360784, 0.360784, 0.360784, 0 )
+Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 7 )
+Label/styles/normal = SubResource( 10 )
+LineEdit/colors/cursor_color = Color( 0.247059, 0.407843, 0.815686, 1 )
+LineEdit/colors/font_color = Color( 0.0196078, 0.105882, 0.0588235, 1 )
+LineEdit/fonts/font = SubResource( 8 )
+LineEdit/styles/focus = SubResource( 9 )
+Panel/styles/panel = SubResource( 11 )
+TextEdit/colors/font_color = Color( 0.0196078, 0.105882, 0.0588235, 1 )
+TextEdit/constants/line_spacing = 4
+TextEdit/fonts/font = SubResource( 12 )

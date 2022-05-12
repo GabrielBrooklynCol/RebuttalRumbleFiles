@@ -1,11 +1,14 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://PlayerHealthUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_1024x640/stage_2_scene_3.png" type="Texture" id=2]
-[ext_resource path="res://Sounds/Eggy-Toast-Fun.mp3_1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://ZombiaPuNK.tres" type="Theme" id=2]
+[ext_resource path="res://Gigakoops-Ill-Rip-Every-Tooth-Ou.mp3" type="AudioStream" id=3]
 [ext_resource path="res://DialogBattle/ResponseLabel.gd" type="Script" id=4]
+[ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_2024x640/stage_2_scene_3_2024x640.png" type="Texture" id=5]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Isaiah/Isaiah-Stand.png" type="Texture" id=6]
 [ext_resource path="res://DialogBattle2/DialogUI.gd" type="Script" id=7]
-[ext_resource path="res://DialogBattle/characters.png" type="Texture" id=9]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Allison_Trapped.png" type="Texture" id=8]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 2 Boss/Stage_2_Boss-Stand.png" type="Texture" id=9]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=24]
@@ -24,18 +27,6 @@ border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 23 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=10]
-animations = [ {
-"frames": [ SubResource( 9 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -101,7 +92,12 @@ pause_mode = 2
 script = ExtResource( 7 )
 
 [node name="Player" parent="DialogueCombat" instance=ExtResource( 22 )]
-position = Vector2( -2, 30 )
+position = Vector2( 42, 60 )
+
+[node name="AllisonTrapped" type="Sprite" parent="DialogueCombat"]
+position = Vector2( 523, 250 )
+scale = Vector2( 3.91379, 4.88971 )
+texture = ExtResource( 8 )
 
 [node name="Enemy" type="KinematicBody2D" parent="DialogueCombat"]
 
@@ -155,11 +151,9 @@ custom_fonts/normal_font = SubResource( 12 )
 text = " My films are nothing short of masterpieces! The people hunger for what was long gone and I feed them through beloved cinema! This film is sure to impress once they know a genuine human is on the menu!"
 
 [node name="Sprite" type="Sprite" parent="DialogueCombat/Enemy"]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="DialogueCombat/Enemy/Sprite"]
-position = Vector2( 895, 380 )
-scale = Vector2( 6.03125, 6.79688 )
-frames = SubResource( 10 )
+position = Vector2( 898, 341 )
+scale = Vector2( 4.32692, 5.875 )
+texture = ExtResource( 9 )
 
 [node name="ArgueOrProposition" type="MarginContainer" parent="DialogueCombat"]
 visible = false
@@ -230,6 +224,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -457,6 +452,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -674,6 +670,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -895,6 +892,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1035,6 +1033,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1172,6 +1171,7 @@ margin_left = 5.0
 margin_top = 550.0
 margin_right = 1022.0
 margin_bottom = 639.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2697,15 +2697,23 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueCombat"]
 stream = ExtResource( 3 )
+volume_db = -35.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 position = Vector2( 512, 320 )
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="Stage2Scene32024X640" type="Sprite" parent="ParallaxBackground/Sprite"]
+position = Vector2( 2.6226e-06, -1.99999 )
+scale = Vector2( 0.504941, 0.99375 )
+texture = ExtResource( 5 )
+
+[node name="Isaiah-Stand" type="Sprite" parent="."]
+position = Vector2( 54, 350.75 )
+scale = Vector2( 4.26087, 6.47778 )
+texture = ExtResource( 6 )
+flip_h = true
 
 [connection signal="pressed" from="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="DialogueCombat" method="_on_argueBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/AcclaimedBTN" to="DialogueCombat" method="_on_AcclaimedBTN_pressed"]

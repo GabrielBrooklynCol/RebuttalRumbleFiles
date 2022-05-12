@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://PARALLAX_BACKGROUND_SCENES/SCENE_3_1024X640.png" type="Texture" id=2]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Hazard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sign.tscn" type="PackedScene" id=4]
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Stage_1_Boss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Level_1Section3.gd" type="Script" id=8]
 [ext_resource path="res://Sounds/Arcade-Adventures_1.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sign(DialogBattle).gd" type="Script" id=10]
 
 [node name="Level_1Section3" type="Node2D"]
 pause_mode = 2
@@ -29,10 +30,6 @@ pause_mode = 2
 visible = false
 position = Vector2( 328, 200 )
 
-[node name="Hazard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 520, 608 )
-z_index = -1
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 1, 0.5 )
 
@@ -50,7 +47,12 @@ __meta__ = {
 
 [node name="Stage_1_Boss" parent="." instance=ExtResource( 7 )]
 pause_mode = 2
-position = Vector2( 330, 582 )
+position = Vector2( 808, 582 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -35.0
+
+[node name="Sign" parent="." instance=ExtResource( 4 )]
+position = Vector2( 383, 569 )
+script = ExtResource( 10 )

@@ -1,19 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://STAGE_TWO_SCENES_AND_TILES/STAGE_TWO_SCENES_1024x640/stage_2_scene_1.png" type="Texture" id=3]
 [ext_resource path="res://TileMap2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Proposition3_Collider.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Ladder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Hazard_rocks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://FallingWoodenPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Gigakoops-Death-In-General.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Level_2.gd" type="Script" id=10]
 
 [node name="Level_2" type="Node2D"]
 pause_mode = 2
 position = Vector2( -1, 0 )
+script = ExtResource( 10 )
 
 [node name="Player1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 137, 576 )
+position = Vector2( 137, 578 )
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -30,20 +34,104 @@ scroll_base_scale = Vector2( 1, 0.5 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, 160 )
+position = Vector2( -3, 189.75 )
+scale = Vector2( 1.00098, 1.18594 )
 z_index = -2
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 0, -160 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
-tile_data = PoolIntArray( 1245184, -1073741824, 0, 1245185, -1073741824, 0, 1245186, -1073741824, 0, 1245187, -1073741824, 0, 1245188, -1073741824, 0, 1245189, -1073741824, 0, 1245190, -1073741824, 0, 1245191, -1073741824, 0, 1245192, -1073741824, 0, 1245193, -1073741824, 0, 1245194, -1073741824, 0, 1245195, -1073741824, 0, 1245196, -1073741824, 0, 1245197, -1073741824, 0, 1245198, -1073741824, 0, 1245199, -1073741824, 0, 1245200, -1073741824, 0, 1245201, -1073741824, 0, 1245202, -1073741824, 0, 1245203, -1073741824, 0, 1245204, -1073741824, 0, 1245205, -1073741824, 0, 1245206, -1073741824, 0, 1245207, -1073741824, 0, 1245208, -1073741824, 0, 1245209, -1073741824, 0, 1245210, -1073741824, 0, 1245211, -1073741824, 0, 1245212, -1073741824, 0, 1245213, -1073741824, 0, 1245214, -1073741824, 0, 1245215, -1073741824, 0 )
-
-[node name="Ladder" parent="." instance=ExtResource( 6 )]
-position = Vector2( 217, 576 )
+tile_data = PoolIntArray( 851989, -1073741823, 0, 983060, -1073741823, 0, 983061, -1073741823, 0, 1179654, 1, 0, 1179661, -1073741823, 0, 1179662, -1073741823, 0, 1179663, -1073741823, 0, 1179664, -1073741823, 0, 1245184, -1610612736, 0, 1245185, -1610612736, 0, 1245186, -1610612736, 0, 1245187, -1610612736, 0, 1245188, -1610612736, 0, 1245189, -1610612736, 0, 1245190, -1610612736, 0, 1245191, -1610612736, 0, 1245192, -1610612736, 0, 1245193, -1610612736, 0, 1245194, -1610612736, 0, 1245195, -1610612736, 0, 1245196, -1610612736, 0, 1245197, -1610612736, 0, 1245198, -1610612736, 0, 1245199, -1610612736, 0, 1245200, -1610612736, 0, 1245201, -1610612736, 0, 1245202, -1610612736, 0, 1245203, -1610612736, 0, 1245204, -1610612736, 0, 1245205, -1610612736, 0, 1245206, -1610612736, 0, 1245207, -1610612736, 0, 1245208, -1610612736, 0, 1245209, -1610612736, 0, 1245210, -1610612736, 0, 1245211, -1610612736, 0, 1245212, -1610612736, 0, 1245213, -1610612736, 0, 1245214, -1610612733, 0, 1245215, -1610612733, 0 )
 
 [node name="Proposition3_Collider" parent="." instance=ExtResource( 5 )]
-position = Vector2( 57, 568 )
+position = Vector2( 994, 577 )
+scale = Vector2( 1.00494, 1 )
+
+[node name="HazardRocks" parent="." instance=ExtResource( 6 )]
+position = Vector2( 293, 600 )
+
+[node name="HazardRocks10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 293, 600 )
+
+[node name="HazardRocks2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 587, 593 )
+
+[node name="HazardRocks4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 469, 561 )
+
+[node name="HazardRocks5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 427, 562 )
+
+[node name="HazardRocks6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 379, 598 )
+
+[node name="HazardRocks8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 562 )
+
+[node name="HazardRocks9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 676, 467 )
+
+[node name="HazardRocks7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 337, 598 )
+
+[node name="HazardRocks3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 237, 598 )
+
+[node name="HazardRocks13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 667, 594 )
+
+[node name="HazardRocks12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 550, 593 )
+
+[node name="HazardRocks16" parent="." instance=ExtResource( 6 )]
+position = Vector2( 793, 593 )
+
+[node name="HazardRocks15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 757, 594 )
+
+[node name="HazardRocks17" parent="." instance=ExtResource( 6 )]
+position = Vector2( 828, 590 )
+
+[node name="HazardRocks14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 712, 592 )
+
+[node name="HazardRocks11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 628, 594 )
+
+[node name="FallingWoodPlatform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 258, 546 )
+
+[node name="FallingWoodPlatform3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 387, 519 )
+
+[node name="FallingWoodPlatform11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 833, 559 )
+
+[node name="FallingWoodPlatform10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 793, 559 )
+
+[node name="FallingWoodPlatform6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 515, 520 )
+
+[node name="FallingWoodPlatform8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 612, 500 )
+
+[node name="FallingWoodPlatform7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 570, 500 )
+
+[node name="FallingWoodPlatform5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 475, 519 )
+
+[node name="FallingWoodPlatform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 324, 540 )
+
+[node name="FallingWoodPlatform4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 435, 520 )
+
+[node name="FallingWoodPlatform9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 763, 559 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -35.0

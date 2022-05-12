@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://DialogBattle/Born2bSportyV2.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 1 Boss/Stage 1 Boss-Stand.png" type="Texture" id=11]
 [ext_resource path="res://PARALLAX_BACKGROUND_SCENES/BATTLE_SCENE(FINAL).png" type="Texture" id=12]
 [ext_resource path="res://Sounds/Eggy-Toast-Fun.mp3_1.ogg" type="AudioStream" id=13]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Isaiah/Isaiah-Tied.png" type="Texture" id=14]
+[ext_resource path="res://DesertPunkUi.tres" type="Theme" id=15]
 
 [sub_resource type="StyleBoxFlat" id=27]
 bg_color = Color( 0, 0, 0, 1 )
@@ -151,7 +153,7 @@ pause_mode = 2
 script = ExtResource( 8 )
 
 [node name="Player" parent="DialogueCombat" instance=ExtResource( 9 )]
-position = Vector2( -2, 30 )
+position = Vector2( -10, 56 )
 
 [node name="Enemy" type="KinematicBody2D" parent="DialogueCombat"]
 
@@ -280,6 +282,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -423,6 +426,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -480,7 +484,8 @@ __meta__ = {
 
 [node name="OldSelfBTN" type="Button" parent="DialogueCombat/SecondArgument/Panel/MarginContainer/Panel/HBoxContainer"]
 visible = false
-margin_right = 220.0
+margin_left = 224.0
+margin_right = 444.0
 margin_bottom = 49.0
 rect_min_size = Vector2( 220, 49 )
 
@@ -640,6 +645,7 @@ margin_left = 2.0
 margin_top = -144.0
 margin_right = -4.0
 margin_bottom = 1.0
+theme = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -778,6 +784,7 @@ margin_left = 5.0
 margin_top = 550.0
 margin_right = 1022.0
 margin_bottom = 639.0
+theme = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -785,6 +792,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="DialogueCombat/ResponseAcclaimed"]
 margin_right = 1017.0
 margin_bottom = 89.0
+theme = ExtResource( 15 )
 custom_styles/panel = SubResource( 30 )
 
 [node name="ResponseMostFearedBTN" type="Button" parent="DialogueCombat/ResponseAcclaimed/Panel"]
@@ -2303,15 +2311,18 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueCombat"]
 stream = ExtResource( 13 )
+volume_db = -35.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 position = Vector2( 512, 320 )
 texture = ExtResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="Isaiah-Tied" type="Sprite" parent="ParallaxBackground/Sprite"]
+position = Vector2( -19, -112 )
+scale = Vector2( 2.74138, 5.26923 )
+texture = ExtResource( 14 )
 
 [connection signal="pressed" from="DialogueCombat/ArgueOrProposition/Panel/MarginContainer/HBoxContainer/argueBTN" to="DialogueCombat" method="_on_argueBTN_pressed"]
 [connection signal="pressed" from="DialogueCombat/DialogOptionsContainer/Panel/MarginContainer/Panel/HBoxContainer/MostFearedBTN" to="DialogueCombat" method="_on_MostFearedBTN_pressed"]

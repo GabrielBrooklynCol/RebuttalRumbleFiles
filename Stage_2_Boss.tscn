@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Stage_2_Boss.gd" type="Script" id=1]
 [ext_resource path="res://Info_Collider_Assets/zbox.png" type="Texture" id=2]
-[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 1 Boss/Stage 1 Boss-Stand.png" type="Texture" id=3]
+[ext_resource path="res://CharacterSprites/4900_Game_Project/4900 Game Project/All Sprites/Stage 2 Boss/Stage_2_Boss-Stand.png" type="Texture" id=3]
 [ext_resource path="res://Info_Textbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -16,7 +16,9 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -9, -8 )
+
+[node name="Stage2Boss-Stand" type="Sprite" parent="Sprite"]
+position = Vector2( -4, -1 )
 texture = ExtResource( 3 )
 
 [node name="BossCollisionBox" type="CollisionShape2D" parent="."]

@@ -19,7 +19,7 @@ func _physics_process(delta):
 		$ZBoxSprite.show()
 		if Input.is_action_pressed("ui_interact"):
 			#Textbox pops up containing boss information
-			$Info_Textbox.add_text("Haha! Lets fight.")
+			$Info_Textbox.add_text("So, another pipsqueak shows up. Unfortunately for you, I already have someone on board rearin' to be a killing machine. Unless, are you trying to keep him for yourself? You should know what's mine is mine. Your life will be no exception. But, you're desperation is too funny to pass. Enter my lair so me and my lacky can hear that desperation together...")
 
 func _input(event):
 	if event is InputEventMouseButton:
